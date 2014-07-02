@@ -63,5 +63,9 @@
   "database": {
     "host": "localhost",
     "database": "mytravels"   
+  },
+  
+  "bcrypt": {
+    "difficulty": 8
   }
 }
