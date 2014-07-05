@@ -1,5 +1,5 @@
-{>"layouts/master" /}
+{>"layouts/master" class="class=login"/}
 
 {<body}
-    <h1>{@pre type="content" key="greeting"/}</h1>
+    
 {/body}

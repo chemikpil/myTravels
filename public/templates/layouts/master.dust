@@ -3,11 +3,15 @@
 <head>
     <meta charset="utf-8" />
     <title>{+title /}</title>
+    <meta name="author" content="Michał Chemikpil Maćkowiak" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+    <link rel="shortcut icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/app.css" />
 </head>
-<body>
-<div id="wrapper">
-    {+body /}
-</div>
-<script data-main="/js/app" src="/components/requirejs/require.js"></script>
+<body {class}>
+  {+body /}
+
+  <script data-main="/js/app" src="/components/requirejs/require.js"></script>
 </body>
 </html>
