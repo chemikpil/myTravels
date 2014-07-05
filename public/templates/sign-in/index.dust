@@ -1,5 +1,9 @@
-{>"layouts/master" class="class=login"/}
+{>"layouts/master" class="class=login-page"/}
 
 {<body}
+    
+    <h1 class="logo logo--big">
+        <i class="icon-location"></i><br> myTravels
+    </h1>
     
 {/body}
