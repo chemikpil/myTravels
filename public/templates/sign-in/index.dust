@@ -6,4 +6,18 @@
         <i class="icon-location"></i><br> myTravels
     </h1>
     
+    <form action="" class="form form--block form--light">
+      <h2 class="form__title">Welcome back</h2>
+
+      <input type="email" placeholder="Your email" class="input">
+      <input type="password" placeholder="Your password" class="input">
+
+      <button class="button">Sign in</button>
+      
+      <div class="form__fotter">
+        <a href="/forgot" class="form__link">I forgot my password</a>
+        <a href="/join" class="form__link">Create an account</a>
+      </div>
+    </form>
+    
 {/body}

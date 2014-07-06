@@ -1,0 +1,92 @@
+/*****************************
+ *
+ * Form style
+ * 
+ * Menu:
+ *  1. Form base
+ *  2. Inputs
+ *  3. Buttons
+ *  4. Form styles
+ *
+ *****************************/
+
+/***[ 1. Form base ]***/
+
+.form__title {
+  font-size: 2.4rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.form__link {
+  font-size: 1.8rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.form__fotter > .form__link:nth-child(2) {
+  float: right;
+}
+
+/***[ 2. Inputs ]***/
+
+.input {
+  padding: 1rem 1.8rem;
+  
+  border: 1px solid #1f282e;
+  
+  font-size: 2.2rem;
+  line-height: 4rem;
+  color: #1f282e;
+  
+  transition-duration: .3s;
+  transition-property: background, border;
+}
+
+/***[ 3. Buttons ]***/
+
+.button {
+  border: none;
+  
+  background-color: #1f282e;
+  
+  line-height: 6rem;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  color: #fff;
+  
+  cursor: pointer;
+}
+
+/***[ 4. Form styles ]***/
+
+.form--block .input,
+.form--block .button {
+  width: 100%;
+  display: block;
+  margin-bottom: 2.5rem;
+}
+
+.form--light {
+  color: #fff; 
+}
+
+.form--light .input {
+  border-color: rgba(255, 255, 255, .3);
+  
+  background-color: rgba(255, 255, 255, .04);
+  
+  color: #fff;
+}
+
+.form--light .input:focus {
+  border-color: rgba(255, 255, 255, .6);
+  
+  background-color: rgba(255, 255, 255, .2);
+}
+
+.form--light .button {
+  background-color: #fff;
+  
+  color: #000;
+}
