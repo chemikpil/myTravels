@@ -32,12 +32,12 @@ describe('/sign-in', function () {
     });
 
 
-    it('should say "hello"', function (done) {
+    it('should say "Welcome back"', function (done) {
         request(mock)
             .get('/sign-in')
             .expect(200)
             .expect('Content-Type', /html/)
-            .expect(/Hello, /)
+            .expect(/Welcome back/)
             .end(function (err, res) {
                 done(err);
             });
