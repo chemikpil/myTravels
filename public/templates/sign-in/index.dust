@@ -7,16 +7,16 @@
     </h1>
     
     <form action="" class="form form--block form--light is-animated fadeIn delay-0-8s">
-      <h2 class="form__title">Welcome back</h2>
+      <h2 class="form__title">{@pre type="content" key="welcomeBack"/}</h2>
 
-      <input type="email" placeholder="Your email" class="input">
-      <input type="password" placeholder="Your password" class="input">
+      <input type="email" placeholder='{@pre type="content" key="yourEmail"/}' class="input">
+      <input type="password" placeholder='{@pre type="content" key="yourPassword"/}' class="input">
 
-      <button class="button">Sign in</button>
+      <button class="button">{@pre type="content" key="signIn"/}</button>
       
       <div class="form__fotter">
-        <a href="/forgot" class="form__link">I forgot my password</a>
-        <a href="/join" class="form__link">Create an account</a>
+        <a href="/forgot" class="form__link">{@pre type="content" key="forgotPassword"/}</a>
+        <a href="/join" class="form__link">{@pre type="content" key="createAccount"/}</a>
       </div>
     </form>
     
