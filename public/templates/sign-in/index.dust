@@ -3,10 +3,10 @@
 {<body}
     
     <h1 class="logo logo--big">
-        <i class="icon-location"></i><br> myTravels
+        <i class="icon-location is-animated fadeInUp delay-0-3s"></i><br> <span class="is-animated fadeIn delay-0-3s">myTravels</span>
     </h1>
     
-    <form action="" class="form form--block form--light">
+    <form action="" class="form form--block form--light is-animated fadeIn delay-0-8s">
       <h2 class="form__title">Welcome back</h2>
 
       <input type="email" placeholder="Your email" class="input">
