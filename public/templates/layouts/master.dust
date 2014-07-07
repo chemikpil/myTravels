@@ -13,7 +13,7 @@
   {+body /}
 
 
-  <footer class="is-animated fadeIn delay-0-8s">
+  <footer class="animated fadeIn delay-0-8s">
     myTravels &copy; 2014
   </footer>
   <script data-main="/js/app" src="/components/requirejs/require.js"></script>
