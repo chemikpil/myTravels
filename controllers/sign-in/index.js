@@ -1,12 +1,12 @@
 'use strict';
 
 
-var SignInModel = require('../../models/sign-in');
+var UserModel = require('../../models/user');
 
 
 module.exports = function (router) {
 
-    var model = new SignInModel();
+    var model = new UserModel();
 
 
     router.get('/', function (req, res) {

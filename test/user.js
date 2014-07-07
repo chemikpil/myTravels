@@ -69,9 +69,9 @@ describe('User model', function () {
   it('user sould be confirmed', function () {
     var confirm = false;
     
-    user.comfirmed = true;
+    user.confirmed = true;
     user.save();
-    
+        
     confirm = user.confirmed;
     confirm.should.be.true;
   });
