@@ -3,7 +3,7 @@
 {<body}
     
     <h1 class="logo logo--big">
-        <i class="icon-location animated fadeInUp delay-0-3s"></i><br> <span class="animated fadeIn delay-0-3s">myTravels</span>
+        <a href="#"><i class="icon-location animated fadeInUp delay-0-3s"></i><br> <span class="animated fadeIn delay-0-3s">myTravels</span></a>
     </h1>
     
     <form action="" class="form form--block form--light animated fadeIn delay-0-8s">
