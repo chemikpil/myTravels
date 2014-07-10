@@ -57,6 +57,33 @@
         "name": "kraken-js/middleware/500",
         "arguments": [ "errors/500" ]
       }
+    },
+    
+    "flash": {
+      "priority": 91,
+      "enabled": true,
+      "module": {
+        "name": "connect-flash",
+        "method": "flash"
+      }
+    },
+    
+    "isAuthenticated": {
+      "enabled": true,
+      "priority": 111,
+      "module": {
+        "name": "path:./lib/auth",
+        "method": "isAuthenticated"
+      }
+    },
+        
+    "injectUser": {
+      "enabled": true,
+      "priority": 112,
+      "module": {
+        "name": "path:./lib/auth",
+        "method": "injectUser"
+      }
     }
   },
   
