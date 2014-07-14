@@ -10,7 +10,7 @@
       <h2 class="form__title">{@pre type="content" key="welcomeBack"/}</h2>
 
       {#errors}
-		<div class="message message--error">{.}</div>
+		<div class="message message--dark message--error animated shake delay-1s">{.}</div>
       {/errors}
      
       <input type="hidden" name="_csrf" value="{_csrf}"/>
