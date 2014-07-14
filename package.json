@@ -41,7 +41,8 @@
     "grunt-contrib-jshint": "~0.10.0",
     "chai": "~1.9.1",
     "mockgoose": "~1.10.0",
-    "sinon": "~1.10.2"
+    "sinon": "~1.10.2",
+    "colors": "~0.6.2"
   },
   "generator-kraken": {
     "version": "1.0.0",
