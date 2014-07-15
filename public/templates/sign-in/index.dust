@@ -1,5 +1,7 @@
 {>"layouts/master" class="class=login-page"/}
 
+{<title}{@pre type="content" key="title"/}{/title}
+
 {<body}
     
     <h1 class="logo logo--big">
