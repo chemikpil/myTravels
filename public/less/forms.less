@@ -15,19 +15,40 @@
 .form__title {
   margin: 0 0 30px;
   
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   font-weight: 400;
   text-transform: uppercase;
 }
 
 .form__link {
-  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 10px;
+  
   color: inherit;
+  font-size: 1.8rem;
+  text-align: center;
   text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
-.form__fotter > .form__link:nth-child(2) {
-  float: right;
+@media (min-width: @sm-min-width) {
+  .form__title {
+    font-size: 2.4rem;
+  }
+  
+  .form__link {
+    display: inline;
+    margin: 0;
+    
+    text-align: left;
+  }
+  
+  .form__fotter > .form__link:nth-child(2) {
+    float: right;
+  }
 }
 
 /***[ 2. Inputs ]***/
@@ -59,6 +80,11 @@
   color: #fff;
   
   cursor: pointer;
+  
+  &:hover {
+    background-color: #fbda38;
+    color: #6f5b0b;
+  }
 }
 
 /***[ 4. Form styles ]***/
@@ -88,7 +114,7 @@
   background-color: rgba(255, 255, 255, .2);
 }
 
-.form--light .button {
+.form--light .button:not(:hover) {
   background-color: #fff;
   
   color: #000;

@@ -20,7 +20,7 @@
       <input type="email" name="email" placeholder='{@pre type="content" key="yourEmail"/}' class="input">
       <input type="password" name="password" placeholder='{@pre type="content" key="yourPassword"/}' class="input">
 
-      <button class="button">{@pre type="content" key="signIn"/}</button>
+      <button class="button" type="submit">{@pre type="content" key="signIn"/}</button>
       
       <div class="form__fotter">
         <a href="/forgot" class="form__link">{@pre type="content" key="forgotPassword"/}</a>
