@@ -6,3 +6,5 @@ public/components/
 config/mail.json
 *.iml
 /config/mail.json
+
+*.log
