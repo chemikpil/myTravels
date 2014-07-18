@@ -2,7 +2,7 @@
 
 'use strict';
 
-require('../models/user');
+require('../../models/user');
 
 var chai = require('chai');
 var should = chai.should();
@@ -32,7 +32,7 @@ beforeEach(function (done) {
   });
   
   user.save();
-  done()
+  done();
 });
 
 afterEach(function (done) {
