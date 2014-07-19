@@ -30,7 +30,7 @@ describe('Mail lib', function () {
     mail = require('../../lib/mail')(stubTransport());
     options = {
       template: 'welcome',
-      data: {name: 'Thomas'},
+      data: {link: 'http://mytravels.com/confirm?key=738cyjk1098hd143'},
       message: {
         from: 'myTravels <hello@mytravels.com>',
         to: 'user@mytravels.com',
@@ -41,7 +41,7 @@ describe('Mail lib', function () {
   
   it('should send email with template', function () {
     mail.sendEmail(options, app, function (err, info) {
-      expect(info.response.toString()).to.have.string('Hi Thomas');
+      expect(info.response.toString()).to.have.string('Welcome to myTravels');
     });
   });
   
