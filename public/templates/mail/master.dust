@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>{subject}</title>
-</head>
-<body>
   
-  <table>
-    <th>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body style="background-color: #eceef1; font-family: 'Raleway', sans-serif; font-size: 14px">
+  
+  <table align="center" style="margin: 20px auto 0; width: 700px; text-align: center">
+    <tr>
       <td>
-        Hi {name}
+        <img src="/img/email-bg.jpg" alt="" width="700" height="363">
       </td>
-    </th>
+    </tr>
   </table>
   
-  <table>
+  <table style="margin: 0 auto; padding: 30px; width: 700px; height: 363px; background: #fff; color #393939">
     {+body /}
   </table>
   
-  <table>
+  <table style="width: 100%; margin-top: 10px; font-size: 12px; text-align: center">
     <tr>
-      <td>myTravels © 2014</td>
+      <td>myTravels © 2014 &nbsp;&nbsp;&nbsp; Made with love</td>
     </tr>
   </table>
   

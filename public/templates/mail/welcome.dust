@@ -1,31 +1,33 @@
-{>"master" /}
+{>"mail/master" /}
    
    
 {<body}
   <tr>
     <td>
 
-      <h1>Welcome to myTravels</h1>
+      <h2 style="margin-top: 0; font-size: 22px">{@pre type="content" key="welcome"/}</h2>
 
-      <p>We’re so happy you’ve joined us. You are just one step away form joining myTravels. All you ned to do is complete the sing-up process by clicking the button below.</p>
+      <p style="line-height: 22px">{@pre type="content" key="welcomeMsg"/}</p>
 
     </td>
   </tr>
 
   <tr>
-    <td><a href="{link}">Verify my account</a></td>
-  </tr>
-
-  <tr>
-    <td>
-      <p>or, click on this link:</p>
-      <a href="{link}">{link}</a>
+    <td style="padding: 40px 0; text-align: center">
+      <a href="{link}" style="padding: 20px 50px; background-color: #000; color: #fff; font-size: 22px; text-decoration: none; text-transform: uppercase">{@pre type="content" key="verify"/}</a>
     </td>
   </tr>
 
-  <tr>
+  <tr style="line-height: 20px; font-size: 12px;">
     <td>
-      <p>In case this wasn’t you, we’re sorry for the inconvenience. Just ingore this message and we’ll never bother you again.</p>
+      <p>{@pre type="content" key="clickLink"/}<br>
+      <a href="{link}" style="color: #16679c">{link}</a></p>
+    </td>
+  </tr>
+
+  <tr style="line-height: 20px; font-size: 12px;">
+    <td>
+      <p>{@pre type="content" key="sorry"/}</p>
     </td>
   </tr>
 {/body}
