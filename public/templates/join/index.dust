@@ -1,0 +1,29 @@
+{>"layouts/master" class="class=login-page"/}
+
+{<title}{@pre type="content" key="title"/}{/title}
+
+{<body}
+    
+    <h1 class="logo logo--big">
+        <a href="/"><i class="icon-location animated fadeInUp delay-0-3s"></i><br> <span class="animated fadeIn delay-0-3s">myTravels</span></a>
+    </h1>
+    
+    <form method="post" class="form form--block form--light animated fadeIn delay-0-8s">
+      <h2 class="form__title">{@pre type="content" key="join"/}</h2>
+
+      {#errors}
+		<div class="message message--dark message--error animated shake delay-1s">{.}</div>
+      {/errors}
+     
+      <input type="hidden" name="_csrf" value="{_csrf}"/>
+     
+      <input type="email" name="email" required placeholder='{@pre type="content" key="yourEmail"/}' class="input">
+      <input type="password" name="password" required placeholder='{@pre type="content" key="yourPassword"/}' class="input">
+      <input type="email" name="email" required placeholder='{@pre type="content" key="yourEmailAgain"/}' class="input">
+      <input type="password" name="password" required placeholder='{@pre type="content" key="yourPasswordAgain"/}' class="input">
+
+      <button class="button" type="submit">{@pre type="content" key="join"/}</button>
+      
+    </form>
+    
+{/body}
