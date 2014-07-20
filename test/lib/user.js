@@ -27,7 +27,6 @@ beforeEach(function (done) {
     trips: 0,
     role: 'user',
     registered: new Date(),
-    confirm_token: '12341234512345',
     confirmed: false
   });
   

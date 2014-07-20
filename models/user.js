@@ -2,7 +2,8 @@
 
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
-var crypto = require('../lib/crypto');
+var crypto = require('crypto');
+var cryptoConf = require('../lib/crypto');
 
 var UserModel = function () {
   var userSchema = mongoose.Schema({
@@ -25,9 +26,10 @@ var UserModel = function () {
       return;
     }
     
-    var hashedPwd = bcrypt.hashSync(user.password, crypto.getLevel());
+    var hashedPwd = bcrypt.hashSync(user.password, cryptoConf.getLevel());
     
     user.password = hashedPwd;
+    user.confirm_token = crypto.randomBytes(32).toString('hex');
     
     next();
   });
