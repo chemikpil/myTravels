@@ -18,9 +18,9 @@
       <input type="hidden" name="_csrf" value="{_csrf}"/>
      
       <input type="email" name="email" required placeholder='{@pre type="content" key="yourEmail"/}' class="input">
+      <input type="email" name="reemail" required placeholder='{@pre type="content" key="yourEmailAgain"/}' class="input">
       <input type="password" name="password" required placeholder='{@pre type="content" key="yourPassword"/}' class="input">
-      <input type="email" name="email" required placeholder='{@pre type="content" key="yourEmailAgain"/}' class="input">
-      <input type="password" name="password" required placeholder='{@pre type="content" key="yourPasswordAgain"/}' class="input">
+      <input type="password" name="repassword" required placeholder='{@pre type="content" key="yourPasswordAgain"/}' class="input">
 
       <button class="button" type="submit">{@pre type="content" key="join"/}</button>
       
