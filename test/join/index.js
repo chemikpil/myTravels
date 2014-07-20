@@ -35,7 +35,7 @@ describe('/join', function () {
             .get('/join')
             .expect(200)
             .expect('Content-Type', /html/)
-            .expect(/Hello, /)
+            .expect(/Join/)
             .end(function (err, res) {
                 done(err);
             });
