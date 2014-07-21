@@ -9,13 +9,13 @@ var UserModel = function () {
   var userSchema = mongoose.Schema({
     email: {type: String, unique: true},
     password: String,
-    name: String,
-    surname: String,
-    trips: Number,
+    name: {type: String, default: ''},
+    surname: {type: String, default: ''},
+    trips: {type: Number, default: 0},
     registered: {type: Date, default: Date.now},
-    confirmed: Boolean,
-    confirm_token: String,
-    role: String
+    confirmed: {type: Boolean, default: false},
+    confirm_token: {type: String, default: crypto.randomBytes(32).toString('hex')},
+    role: {type: String, default: 'user'}
   });
   
   userSchema.pre('save', function (next) {
@@ -29,7 +29,6 @@ var UserModel = function () {
     var hashedPwd = bcrypt.hashSync(user.password, cryptoConf.getLevel());
     
     user.password = hashedPwd;
-    user.confirm_token = crypto.randomBytes(32).toString('hex');
     
     next();
   });
