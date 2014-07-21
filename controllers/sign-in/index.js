@@ -12,6 +12,8 @@ module.exports = function (router) {
   router.get('/', function (req, res) {
     
     model.errors = req.flash('error');
+    model.success = req.flash('success');
+    
     res.render('sign-in/index', model);
         
   });
