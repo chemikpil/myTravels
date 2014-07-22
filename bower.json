@@ -4,8 +4,9 @@
   "dependencies": {
     "dustjs-linkedin": "~2.4.0",
     "dustjs-linkedin-helpers": "~1.2.0",
-    "angular": "~1.2.16",
-    "requirejs": "~2.1.13"
+    "requirejs": "~2.1.13",
+    "backbone": "~1.1.2",
+    "underscore": "~1.6.0"
   },
   "private": true
 }
