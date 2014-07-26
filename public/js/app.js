@@ -1,7 +1,4 @@
-/* global require: false */
-
-'use strict';
-
+/* global require: false, $: false */
 
 requirejs.config({
   baseUrl: './js',
@@ -18,14 +15,12 @@ requirejs.config({
 });
 
 
-require(['backbone'], function () {
-
-    var app = {
-        initialize: function () {
-          Backbone.$ = $;
-        }
-    };
-
-    app.initialize();
-
+require([
+  'backbone',
+  'router'
+], function (Backbone, Router) {
+  'use strict';
+  
+  Backbone.$ = $;
+  Router.init();
 });
