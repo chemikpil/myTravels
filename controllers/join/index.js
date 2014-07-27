@@ -4,6 +4,7 @@
 var JoinModel = require('../../models/join');
 var passport = require('passport');
 var mailer = require('../../lib/mail')();
+var auth = require('../../lib/auth');
 
 
 module.exports = function (router) {
@@ -63,6 +64,20 @@ module.exports = function (router) {
     
     res.redirect('/join');
     return;
+  });
+  
+  router.get('/checkemailexist/:email', function (req, res) {
+    auth.emailExist(req.params.email, function (exist) {
+      var data = {exist: exist};
+      res.format({
+        json: function () {
+          res.json(data);
+        },
+        html: function () {
+          res.redirect('/join');
+        }
+      });
+    });
   });
 
 };
