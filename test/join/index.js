@@ -162,5 +162,29 @@ describe('/join', function () {
           });
       });
   });
+  
+  describe('/join/checkemailexist/:email', function () {
+    it('should return json with true if email exist', function (done) {
+      request(mock)
+        .get('/join/checkemailexist/test@mytravels.com')
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .expect(/true/)
+        .end(function (err, res) {
+          done(err);
+        });
+    });
+    
+    it('should return json with false if email does not exist', function (done) {
+      request(mock)
+        .get('/join/checkemailexist/test2@mytravels.com')
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .expect(/false/)
+        .end(function (err, res) {
+          done(err);
+        });
+    });
+  });
 
 });
