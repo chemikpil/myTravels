@@ -4,7 +4,7 @@
 var JoinModel = require('../../models/join');
 var passport = require('passport');
 var mailer = require('../../lib/mail')();
-var auth = require('../../lib/auth');
+var userLib = require('../../lib/user')();
 
 
 module.exports = function (router) {
@@ -67,7 +67,7 @@ module.exports = function (router) {
   });
   
   router.get('/checkemailexist/:email', function (req, res) {
-    auth.emailExist(req.params.email, function (exist) {
+    userLib.checkExistEmail(req.params.email, function (exist) {
       var data = {exist: exist};
       res.format({
         json: function () {

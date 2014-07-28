@@ -2,12 +2,13 @@
 
 'use strict';
 
-require('../../models/user');
+require('../../models/user')();
 
 var chai = require('chai');
 var should = chai.should();
 var mongoose = require('mongoose');
 var mockgoose = require('mockgoose');
+var userLib = require('../../lib/user')();
 
 mockgoose(mongoose);
 
@@ -23,7 +24,8 @@ beforeEach(function (done) {
   user = new User({
     _id: ObjectId,
     email: 'test@mytravels.com',
-    password: '12345678'
+    password: '12345678',
+    confirm_token: '1111111111111111111111111111111111111111111111111111111111111111'
   });
 
   user.save();
@@ -36,77 +38,25 @@ afterEach(function (done) {
   done();
 });
 
-
-describe('User model', function () {
+describe('User lib', function () {
   
   
-  it('user should be created', function (done) {
+  it('email adress should exist', function (done) {
     
-    User.findOne({email: 'test@mytravels.com'}, function (err, account) {
-      should.exist(account);
-      account.role.should.be.equal('user');
-      account.trips.should.be.equal(0);
+    userLib.checkExistEmail('test@mytravels.com', function (data) {
+      data.should.be.true;
       done();
     });
     
   });
   
-  
-  it('password should match', function () {
+  it('email adress should not exist', function (done) {
     
-    var password = user.passwordMatches('12345678');
-    password.should.be.true;
-    
-  });
-  
-  
-  it('password should not match', function () {
-    
-    var password = user.passwordMatches('12345677');
-    password.should.be.false;
-    
-  });
-  
-  
-  it('user should can set a name', function (done) {
-    
-    user.name = 'Alice';
-    user.save(function (err, newUser) {
-      newUser.name.should.be.equal('Alice');
+    userLib.checkExistEmail('test2@mytravels.com', function (data) {
+      data.should.be.false;
       done();
     });
     
   });
-  
-  
-  it('user should have a confirm token', function (done) {
-    
-    User.findOne({email: 'test@mytravels.com'}, function (err, account) {
-      should.exist(account.confirm_token);
-      account.confirm_token.length.should.be.equal(64);
-      done();
-    });
-    
-  });
-  
-  
-  it('user should not be confirmed', function () {
-    
-    var confirmed = user.isConfirmed();
-    confirmed.should.be.false;
-    
-  });
-  
-  
-  it('user sould be confirmed', function (done) {
-    
-    user.confirmed = true;
-    user.save(function (err, savedUser) {
-      savedUser.confirmed.should.be.true;
-      done();
-    });
-    
-  });
-  
   
 });
