@@ -51,7 +51,7 @@ module.exports = function (router) {
       req.flash('success', 'It almost done. Check your email for instructions on how to verify your account');
       mailer.sendEmail({
         template: 'welcome',
-        data: {link: 'http://mytravels.com/confirm?key=' + req.user.confirm_token},
+        data: {link: 'http://localhost:8000/join/confirm?key=' + req.user.confirm_token},
         message: {
           from: 'myTravels <hello@mytravels.com>',
           to: req.user.email,
@@ -78,6 +78,18 @@ module.exports = function (router) {
         }
       });
     });
+  });
+  
+  router.get('/confirm', function (req, res) {
+    userLib.confirmUser(req.query.key, function (confirm) {
+      if (confirm) {
+        req.flash('success', 'The user has been successfully confirmed. Now you can log in');
+        res.redirect('/sign-in');
+      } else {
+        res.redirect('/join');
+      }
+    });
+    
   });
 
 };

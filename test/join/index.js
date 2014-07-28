@@ -40,7 +40,8 @@ describe('/join', function () {
     user = new User({
       _id: ObjectId,
       email: 'test@mytravels.com',
-      password: '12345678'
+      password: '12345678',
+      confirm_token: '1111111111111111111111111111111111111111111111111111111111111111'
     });
 
     user.save();
@@ -181,6 +182,41 @@ describe('/join', function () {
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(/false/)
+        .end(function (err, res) {
+          done(err);
+        });
+    });
+  });
+  
+  describe('/join/confirm?key=', function () {
+    it('should redirect to /sign-in if the user has been confirmed', function (done) {
+      request(mock)
+        .get('/join/confirm?key=1111111111111111111111111111111111111111111111111111111111111111')
+        .expect(200)
+        .redirects(2)
+        .expect(/Sign in/)
+        .end(function (err, res) {
+          done(err);
+        });
+    });
+    
+    it('should redirect to /join if the user has not been confirmed', function (done) {
+      request(mock)
+        .get('/join/confirm?key=1111111111111111111111111111111111111111111111111111111111111112')
+        .expect(200)
+        .redirects(2)
+        .expect(/Join/)
+        .end(function (err, res) {
+          done(err);
+        });
+    });
+    
+    it('should redirect to /join withoud confirm token', function (done) {
+      request(mock)
+        .get('/join/confirm')
+        .expect(200)
+        .redirects(2)
+        .expect(/Join/)
         .end(function (err, res) {
           done(err);
         });
