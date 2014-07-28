@@ -59,4 +59,32 @@ describe('User lib', function () {
     
   });
   
+  it('should not confirm user with wrong token', function (done) {
+    
+    userLib.confirmUser('1111111111111111111111111111111111111111111111111111111111111112', function (data) {
+      data.should.be.false;
+      done();
+    });
+    
+  });
+  
+  it('should confirm user with correct token', function (done) {
+    
+    userLib.confirmUser('1111111111111111111111111111111111111111111111111111111111111111', function (data) {
+      data.should.be.true;
+      done();
+    });
+    
+  });
+  
+  it('should confirm user again', function (done) {
+    userLib.confirmUser('1111111111111111111111111111111111111111111111111111111111111111', function (data) {
+      userLib.confirmUser('1111111111111111111111111111111111111111111111111111111111111111', function (data) {
+        data.should.be.false;
+        done();
+      });
+    });
+    
+  });
+  
 });
