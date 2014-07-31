@@ -8,3 +8,4 @@ config/mail.json
 /config/mail.json
 
 *.log
+/public/test/components/
