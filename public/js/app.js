@@ -6,11 +6,6 @@ requirejs.config({
     'jquery': 'libs/backbone.native.min',
     'underscore': '../components/underscore/underscore',
     'backbone': '../components/backbone/backbone'
-  },
-  shim: {
-    'backbone': {
-      deps: ['underscore', 'jquery'] 
-    }
   }
 });
 
