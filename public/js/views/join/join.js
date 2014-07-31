@@ -1,3 +1,5 @@
+/* global $: false, Crime: false */
+
 define([
   'backbone',
   'libs/crime/crime'
@@ -13,9 +15,13 @@ define([
     
     initialize: function () {
       var self = this;
-      this.el.querySelector('form').addEventListener('createMessageTemplate', function (event) {
-        self.stylingMessage(event.detail);
-      }, false);
+      var form = this.el.querySelector('form');
+      
+      if (form) {
+        form.addEventListener('createMessageTemplate', function (event) {
+          self.stylingMessage(event.detail);
+        }, false);
+      }
     },
     
     stylingMessage: function (element) {

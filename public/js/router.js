@@ -15,12 +15,5 @@ define(['backbone'], function (Backbone) {
     }
   });
   
-  var initialize = function () {
-    new AppRouter();
-    Backbone.history.start({pushState: true});
-  };
-  
-  return {
-    init: initialize
-  };
+  return AppRouter;
 });

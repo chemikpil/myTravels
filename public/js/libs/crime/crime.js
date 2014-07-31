@@ -1,6 +1,12 @@
 var Crime = (function () {
   'use strict';
+  
   var form = document.querySelector('[data-crime=true]');
+  
+  if (!form) {
+    return false;
+  }
+  
   var conf = {
     invalidClass: 'is-invalid',
     msgClass: 'message'
@@ -71,5 +77,5 @@ var Crime = (function () {
   return {
     addInvalid: addInvalid,
     removeInvalid: removeInvalid
-  }
+  };
 })();

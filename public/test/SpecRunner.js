@@ -26,6 +26,9 @@ require(['backbone', 'mocha', 'chai', 'sinon'], function(Backbone, mocha, chai, 
   
   'use strict';
   
+  Backbone.$ = $;
+  Backbone.history.start({silent: true, pushState: true});
+  
   // Chai
   window.assert = chai.assert;
   window.expect = chai.expect;

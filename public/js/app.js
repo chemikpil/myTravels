@@ -17,5 +17,7 @@ require([
   'use strict';
   
   Backbone.$ = $;
-  Router.init();
+  
+  new Router();
+  Backbone.history.start({pushState: true});
 });
