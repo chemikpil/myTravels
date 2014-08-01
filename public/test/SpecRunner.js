@@ -1,3 +1,5 @@
+/* global $: false, window: false */
+
 require.config({
   baseUrl: '../js/',
   paths: {
@@ -38,6 +40,7 @@ require(['backbone', 'mocha', 'chai', 'sinon'], function(Backbone, mocha, chai, 
   var specs = [];
 
   specs.push('spec/RouterSpec');
+  specs.push('spec/JoinViewSpec');
     
   require(specs, function(){
     (function(){
