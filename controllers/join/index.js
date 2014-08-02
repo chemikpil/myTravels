@@ -58,6 +58,7 @@ module.exports = function (router) {
           subject: 'Welcome to myTravels'
         }
       }, res);
+      req.logout();
       res.redirect('/sign-in');
       return;
     }
