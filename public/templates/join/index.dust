@@ -17,7 +17,7 @@
      
       <input type="hidden" name="_csrf" value="{_csrf}"/>
            
-      <input type="email" name="email" required placeholder='{@pre type="content" key="yourEmail"/}' class="input">
+      <input type="email" name="email" required placeholder='{@pre type="content" key="yourEmail"/}' class="input" autofocus>
       <input type="email" name="reemail" required placeholder='{@pre type="content" key="yourEmailAgain"/}' class="input" data-validate-match="email" data-mismatch-msg='{@pre type="content" key="yourEmailsDontMatch"/}'>
       <input type="password" name="password" required placeholder='{@pre type="content" key="yourPassword"/}' class="input">
       <input type="password" name="repassword" required placeholder='{@pre type="content" key="yourPasswordAgain"/}' class="input" data-validate-match="password" data-mismatch-msg='{@pre type="content" key="yourPasswordsDontMatch"/}'>
