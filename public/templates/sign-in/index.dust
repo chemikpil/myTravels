@@ -21,7 +21,7 @@
      
       <input type="hidden" name="_csrf" value="{_csrf}"/>
      
-      <input type="email" name="email" required placeholder='{@pre type="content" key="yourEmail"/}' class="input">
+      <input type="email" name="email" required placeholder='{@pre type="content" key="yourEmail"/}' class="input" autofocus>
       <input type="password" name="password" required placeholder='{@pre type="content" key="yourPassword"/}' class="input">
 
       <button class="button" type="submit">{@pre type="content" key="signIn"/}</button>
