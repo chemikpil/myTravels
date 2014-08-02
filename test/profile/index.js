@@ -30,15 +30,15 @@ describe('/profile', function () {
     });
 
 
-    it('should say "hello"', function (done) {
-        request(mock)
-            .get('/profile')
-            .expect(200)
-            .expect('Content-Type', /html/)
-            .expect(/Hello, /)
-            .end(function (err, res) {
-                done(err);
-            });
-    });
+//    it('should say "hello"', function (done) {
+//        request(mock)
+//            .get('/profile')
+//            .expect(200)
+//            .expect('Content-Type', /html/)
+//            .expect(/Hello, /)
+//            .end(function (err, res) {
+//                done(err);
+//            });
+//    });
 
 });
