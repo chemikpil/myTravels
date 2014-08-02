@@ -33,7 +33,7 @@ describe('/sign-in', function () {
     }));
     
     app.all('/profile', function (req, res) {
-      res.send(200, 'Profile page');
+      res.status(200).send('Profile page');
     });
     
     mock = app.listen(1337);
