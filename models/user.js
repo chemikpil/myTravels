@@ -10,7 +10,6 @@ var UserModel = function () {
     email: {type: String, unique: true},
     password: String,
     name: {type: String, default: ''},
-    surname: {type: String, default: ''},
     trips: {type: Number, default: 0},
     registered: {type: Date, default: Date.now},
     confirmed: {type: Boolean, default: false},
