@@ -1,0 +1,10 @@
+<ul class="stast">
+  <li>
+    {user.trips}
+    <span>trips</span>
+  </li>
+  <li>
+    {user.followers}
+    <span>followers</span>
+  </li>
+</ul>

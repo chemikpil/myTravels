@@ -1,0 +1,8 @@
+<div class="cover">
+  
+  <img src="" alt="" class="avatar">
+  
+  <p>{user.name}</p>
+  
+  <p><i class="icon-location"></i> {user.location}</p>
+</div>

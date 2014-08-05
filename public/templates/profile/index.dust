@@ -1,5 +1,11 @@
 {>"layouts/master" /}
 
 {<body}
-    <h1>{@pre type="content" key="greeting"/}</h1>
+    
+    {>"layouts/header" /}
+    
+    {>"profile/cover" /}
+    {>"profile/statistics" /}
+    {>"profile/timeline" /}
+    
 {/body}

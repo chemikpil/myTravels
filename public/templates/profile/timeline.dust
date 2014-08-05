@@ -1,0 +1,9 @@
+<div class="timeline">
+  <h3><i class="icon-airplan"></i> {@pre type="content" key="myTravels"/}</h3>
+  
+  {#trips}
+  
+  {:else}
+    {@pre type="content" key="noTrips"/}
+  {/trips}
+</div>

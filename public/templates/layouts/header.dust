@@ -1,0 +1,16 @@
+<header>
+  <h1 class="logo logo--inline"><a href="/">myTravels <i class="icon-location"></i></a></h1>
+  
+  <nav>
+    <h3>Menu</h3>
+    <ul>
+      {#user}
+        <li><a href="/logout">Logout</a></li>
+      {:else}
+        <li><a href="/sign-in">Sign in</a></li>
+        <li><a href="/join">Join</a></li>
+      {/user}
+      <li><a href="/search">Search</a></li>
+    </ul>
+  </nav>
+</header>
