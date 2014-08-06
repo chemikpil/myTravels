@@ -11,6 +11,8 @@ var UserModel = function () {
     password: String,
     name: {type: String, default: ''},
     trips: {type: Number, default: 0},
+    gravatar: String,
+    cover_photo: {type: String, default: ''},
     registered: {type: Date, default: Date.now},
     confirmed: {type: Boolean, default: false},
     confirm_token: {type: String, default: crypto.randomBytes(32).toString('hex')},
@@ -28,6 +30,7 @@ var UserModel = function () {
     var hashedPwd = bcrypt.hashSync(user.password, cryptoConf.getLevel());
     
     user.password = hashedPwd;
+    user.gravatar = userSchema.method.getGravatarURL(user.email);
     
     next();
   });
@@ -40,6 +43,14 @@ var UserModel = function () {
   userSchema.methods.isConfirmed = function () {
     var user = this;
     return user.confirmed;
+  };
+  
+  userSchema.method.getGravatarURL = function (email) {
+    var MD5 = crypto.createHash('md5');
+      
+    MD5.update(email);
+
+    return 'http://www.gravatar.com/avatar/' + MD5.digest('hex') + '.jpg';
   };
   
   return mongoose.model('User', userSchema);

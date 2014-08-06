@@ -89,6 +89,16 @@ describe('User model', function () {
     
   });
   
+  it('user should have a gravatar url', function (done) {
+    
+    User.findOne({email: 'test@mytravels.com'}, function (err, account) {
+      should.exist(account.gravatar);
+      account.gravatar.length.should.be.equal(67);
+      done();
+    });
+    
+  });
+  
   
   it('user should not be confirmed', function () {
     
