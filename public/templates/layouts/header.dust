@@ -1,16 +1,21 @@
-<header>
-  <h1 class="logo logo--inline"><a href="/">myTravels <i class="icon-location"></i></a></h1>
-  
-  <nav>
-    <h3>Menu</h3>
-    <ul>
-      {#user}
-        <li><a href="/logout">Logout</a></li>
-      {:else}
-        <li><a href="/sign-in">Sign in</a></li>
-        <li><a href="/join">Join</a></li>
-      {/user}
-      <li><a href="/search">Search</a></li>
-    </ul>
-  </nav>
+<header class="header">
+  <div class="container">
+    <div class="row">
+     <div class="col-6">
+       <h1 class="logo logo--inline"><a href="/">myTravels <i class="icon-location"></i></a></h1>
+     </div>
+     <nav class="col-6 main-menu">
+      <h3 class="main-menu__title">Menu</h3>
+      <ul class="main-menu__list">
+        {#user}
+          <li class="main-menu__item"><a href="/logout">Logout</a></li>
+        {:else}
+          <li class="main-menu__item"><a href="/sign-in">Sign in</a></li>
+          <li class="main-menu__item"><a href="/join">Join</a></li>
+        {/user}
+        <li class="main-menu__item"><a href="/search">Search</a></li>
+      </ul>
+    </nav>
+   </div>
+  </div>
 </header>
