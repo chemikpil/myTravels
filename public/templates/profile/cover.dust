@@ -1,4 +1,4 @@
-<div class="cover cover--profile" style="background-image: url(http://38.media.tumblr.com/2c1a9d53169f1eca25b2a0b8238744c9/tumblr_n9hxdqatsK1st5lhmo1_1280.jpg)">
+<div class="cover cover--profile" style="background-image: url({user.cover_photo})">
   
   <img src="{user.gravatar}?s=170" alt="" class="user__avatar">
   
