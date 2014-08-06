@@ -1,0 +1,30 @@
+.user__avatar {
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, .2);
+}
+
+.user__name {
+  margin: 0;
+  
+  font-size: 3.6rem;
+  
+  cursor: pointer;
+  
+  &:empty:before {
+    content: attr(data-empty); 
+  }
+}
+
+.user__location {
+  font-size: 1.4rem;
+  
+  &:before {
+    content: "\e603";
+    
+    font-family: 'myTravel';
+  }
+  
+  &:empty:after {
+    content: attr(data-empty); 
+  }
+}
