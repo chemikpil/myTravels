@@ -1,4 +1,4 @@
-<div class="cover">
+<div class="cover" style="background-image: url({user.cover_photo})">
   
   <img src="" alt="" class="avatar">
   
