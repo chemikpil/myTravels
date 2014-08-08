@@ -1,9 +1,9 @@
-<ul class="stast">
-  <li>
+<ul class="stats">
+  <li class="stats__item">
     {user.trips}
     <span>trips</span>
   </li>
-  <li>
+  <li class="stats__item">
     {user.followers}
     <span>followers</span>
   </li>

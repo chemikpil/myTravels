@@ -11,6 +11,7 @@ var UserModel = function () {
     password: String,
     name: {type: String, default: ''},
     trips: {type: Number, default: 0},
+    followers: {type: Number, default: 0},
     gravatar: String,
     cover_photo: {type: String, default: ''},
     registered: {type: Date, default: Date.now},
