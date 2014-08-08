@@ -18,11 +18,11 @@
 				{}
 			],
 			"properties": {
-				"order": 24,
+				"order": 9,
 				"id": 6,
 				"prevSize": 32,
 				"code": 58880,
-				"name": "weatcher",
+				"name": "cloudy",
 				"ligatures": ""
 			},
 			"setIdx": 0,
@@ -45,11 +45,11 @@
 				{}
 			],
 			"properties": {
-				"order": 23,
+				"order": 8,
 				"id": 5,
 				"prevSize": 32,
 				"code": 58881,
-				"name": "weatcher2",
+				"name": "sun",
 				"ligatures": ""
 			},
 			"setIdx": 0,
@@ -72,11 +72,11 @@
 				{}
 			],
 			"properties": {
-				"order": 22,
+				"order": 7,
 				"id": 4,
 				"prevSize": 32,
 				"code": 58882,
-				"name": "weatcher3",
+				"name": "snowy",
 				"ligatures": ""
 			},
 			"setIdx": 0,
@@ -99,11 +99,11 @@
 				{}
 			],
 			"properties": {
-				"order": 21,
+				"order": 6,
 				"id": 3,
 				"prevSize": 32,
 				"code": 58883,
-				"name": "weatcher4",
+				"name": "rainy",
 				"ligatures": ""
 			},
 			"setIdx": 0,
@@ -126,11 +126,11 @@
 				{}
 			],
 			"properties": {
-				"order": 20,
+				"order": 5,
 				"id": 2,
 				"prevSize": 32,
 				"code": 58884,
-				"name": "weatcher5",
+				"name": "lightning",
 				"ligatures": ""
 			},
 			"setIdx": 0,
@@ -153,11 +153,11 @@
 				{}
 			],
 			"properties": {
-				"order": 19,
+				"order": 4,
 				"id": 1,
 				"prevSize": 32,
 				"code": 58885,
-				"name": "weatcher6",
+				"name": "night",
 				"ligatures": ""
 			},
 			"setIdx": 0,
@@ -180,7 +180,7 @@
 				{}
 			],
 			"properties": {
-				"order": 18,
+				"order": 3,
 				"id": 0,
 				"prevSize": 32,
 				"code": 58886,
@@ -231,7 +231,7 @@
 				{}
 			],
 			"properties": {
-				"order": 4,
+				"order": 2,
 				"id": 0,
 				"prevSize": 32,
 				"code": 58888,

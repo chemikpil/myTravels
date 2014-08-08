@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'myTravels';
-	src:url('fonts/myTravels.eot?ge0n90');
-	src:url('fonts/myTravels.eot?#iefixge0n90') format('embedded-opentype'),
-		url('fonts/myTravels.woff?ge0n90') format('woff'),
-		url('fonts/myTravels.ttf?ge0n90') format('truetype'),
-		url('fonts/myTravels.svg?ge0n90#myTravels') format('svg');
+	src:url('fonts/myTravels.eot?-7f1gpm');
+	src:url('fonts/myTravels.eot?#iefix-7f1gpm') format('embedded-opentype'),
+		url('fonts/myTravels.woff?-7f1gpm') format('woff'),
+		url('fonts/myTravels.ttf?-7f1gpm') format('truetype'),
+		url('fonts/myTravels.svg?-7f1gpm#myTravels') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,22 +23,22 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-weatcher:before {
+.icon-cloudy:before {
 	content: "\e600";
 }
-.icon-weatcher2:before {
+.icon-sun:before {
 	content: "\e601";
 }
-.icon-weatcher3:before {
+.icon-snowy:before {
 	content: "\e602";
 }
-.icon-weatcher4:before {
+.icon-rainy:before {
 	content: "\e603";
 }
-.icon-weatcher5:before {
+.icon-lightning:before {
 	content: "\e604";
 }
-.icon-weatcher6:before {
+.icon-night:before {
 	content: "\e605";
 }
 .icon-celcius:before {
