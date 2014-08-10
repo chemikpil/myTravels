@@ -5,15 +5,15 @@
        <h1 class="logo logo--inline"><a href="/">myTravels <i class="icon-location"></i></a></h1>
      </div>
      <nav class="col-6 main-menu">
-      <h3 class="main-menu__title">Menu</h3>
+      <h3 class="main-menu__title">{@pre type="content" key="menu"/}</h3>
       <ul class="main-menu__list">
         {#user}
-          <li class="main-menu__item"><a href="/logout">Logout</a></li>
+          <li class="main-menu__item"><a href="/logout">{@pre type="content" key="logout"/}</a></li>
         {:else}
-          <li class="main-menu__item"><a href="/sign-in">Sign in</a></li>
-          <li class="main-menu__item"><a href="/join">Join</a></li>
+          <li class="main-menu__item"><a href="/sign-in">{@pre type="content" key="signin"/}</a></li>
+          <li class="main-menu__item"><a href="/join">{@pre type="content" key="join"/}</a></li>
         {/user}
-        <li class="main-menu__item"><a href="/search">Search</a></li>
+        <li class="main-menu__item"><a href="/search">{@pre type="content" key="search"/}</a></li>
       </ul>
     </nav>
    </div>
