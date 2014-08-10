@@ -1,6 +1,6 @@
 <div class="cover cover--profile" style="background-image: url({user.cover_photo})">
   
-  <img src="{user.gravatar}?s=170" alt="" class="user__avatar">
+  <img src="{user.gravatar}?s=170" alt="" width="170" height="170" class="user__avatar">
   
   <p class="user__name" data-empty='{@pre type="content" key="emptyName"/}'>{user.name}</p>
   
