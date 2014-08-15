@@ -9,3 +9,5 @@ config/mail.json
 
 *.log
 /public/test/components/
+
+/public/js/libs/*/tests/bower_components/
