@@ -1,8 +1,8 @@
 <div class="cover cover--profile" style="background-image: url({user.cover_photo})">
   
-  <img src="{user.gravatar}?s=170" alt="" width="170" height="170" class="user__avatar">
+  <img src="{profile.gravatar}?s=170" alt="" width="170" height="170" class="user__avatar">
   
-  <p class="user__name" data-empty='{@pre type="content" key="emptyName"/}'>{user.name}</p>
+  <p class="user__name" data-empty='{@pre type="content" key="emptyName"/}'>{profile.name}</p>
   
-  <p class="user__location" data-empty='{@pre type="content" key="emptyLocation"/}'>{user.location}</p>
+  <p class="user__location" data-empty='{@pre type="content" key="emptyLocation"/}'>{profile.location}</p>
 </div>

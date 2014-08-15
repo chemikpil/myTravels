@@ -32,6 +32,10 @@ describe('/profile', function () {
       basedir: process.cwd(),
       onconfig: spec(app).onconfig
     }));
+    
+    app.all('/', function (req, res) {
+      res.status(200).send('Home page');
+    });
 
     mock = app.listen(1337);
 
@@ -41,8 +45,7 @@ describe('/profile', function () {
       _id: ObjectId,
       email: 'test@mytravels.com',
       password: '12345678',
-      name: 'Thomas',
-      surname: 'Tester',
+      name: 'Thomas Tester',
       trips: 0,
       role: 'user',
       registered: new Date(),
@@ -66,6 +69,54 @@ describe('/profile', function () {
       .redirects(2)
       .expect('Content-Type', /html/)
       .expect(/Sign in/)
+      .end(function (err, res) {
+        done(err);
+      });
+  });
+  
+  it('should render profile page with specified ID', function (done) {
+    request(mock)
+      .get('/profile/' + user._id)
+      .expect(200)
+      .redirects(2)
+      .expect('Content-Type', /html/)
+      .expect(/Thomas Tester/)
+      .end(function (err, res) {
+        done(err);
+      });
+  });
+  
+  it('should render profile page with specified name', function (done) {
+    request(mock)
+      .get('/profile/Thomas.Tester')
+      .expect(200)
+      .redirects(2)
+      .expect('Content-Type', /html/)
+      .expect(/Thomas Tester/)
+      .end(function (err, res) {
+        done(err);
+      });
+  });
+  
+  it('should redirect to home page if the specified ID does not exist', function (done) {
+    request(mock)
+      .get('/profile/12345567432')
+      .expect(200)
+      .redirects(2)
+      .expect('Content-Type', /html/)
+      .expect(/Home page/)
+      .end(function (err, res) {
+        done(err);
+      });
+  });
+  
+  it('should redirect to home page if the specified name does not exist', function (done) {
+    request(mock)
+      .get('/profile/Tomas.Tomas')
+      .expect(200)
+      .redirects(2)
+      .expect('Content-Type', /html/)
+      .expect(/Home page/)
       .end(function (err, res) {
         done(err);
       });

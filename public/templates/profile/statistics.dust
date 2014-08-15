@@ -1,10 +1,10 @@
 <ul class="stats">
   <li class="stats__item">
-    {user.trips}
+    {profile.trips}
     <span>{@pre type="content" key="trips"/}</span>
   </li>
   <li class="stats__item">
-    {user.followers}
+    {profile.followers}
     <span>{@pre type="content" key="followers"/}</span>
   </li>
 </ul>
