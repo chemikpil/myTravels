@@ -32,6 +32,26 @@
   }
 }
 
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1
+  }
+  
+  100% {
+    opacity: 0; 
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1
+  }
+  
+  100% {
+    opacity: 0; 
+  }
+}
+
 @-webkit-keyframes fadeInUp {
   0% {
     -webkit-transform: translateY(40px);
@@ -58,9 +78,14 @@
   }
 }
 
-.fadeIn {
+.fadeOut {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn; 
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut; 
 }
 
 .fadeInUp {

@@ -10,7 +10,10 @@ module.exports = function (router) {
 
   router.get('/', function (req, res) {    
     model.profile = res.locals.user;
-    model.class = 'class=is-editor';
+    
+    if (res.locals.user) {
+      model.class = 'class=is-editor';
+    }
     
     res.render('profile/index', model);
   });

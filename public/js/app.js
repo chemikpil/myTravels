@@ -1,7 +1,7 @@
 /* global require: false, $: false */
 
 requirejs.config({
-  baseUrl: './js',
+  baseUrl: '/js',
   paths: {
     'jquery': 'libs/backbone.native.min',
     'underscore': '../components/underscore/underscore',

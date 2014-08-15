@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'myTravels';
-	src:url('fonts/myTravels.eot?-7f1gpm');
-	src:url('fonts/myTravels.eot?#iefix-7f1gpm') format('embedded-opentype'),
-		url('fonts/myTravels.woff?-7f1gpm') format('woff'),
-		url('fonts/myTravels.ttf?-7f1gpm') format('truetype'),
-		url('fonts/myTravels.svg?-7f1gpm#myTravels') format('svg');
+	src:url('fonts/myTravels.eot?jiy74q');
+	src:url('fonts/myTravels.eot?#iefixjiy74q') format('embedded-opentype'),
+		url('fonts/myTravels.woff?jiy74q') format('woff'),
+		url('fonts/myTravels.ttf?jiy74q') format('truetype'),
+		url('fonts/myTravels.svg?jiy74q#myTravels') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -44,8 +44,20 @@
 .icon-celcius:before {
 	content: "\e606";
 }
+.icon-edit:before {
+	content: "\e609";
+}
 .icon-location:before {
 	content: "\e607";
+}
+.icon-save:before {
+	content: "\e60c";
+}
+.icon-error:before {
+	content: "\e60a";
+}
+.icon-success:before {
+	content: "\e60b";
 }
 .icon-airplan:before {
 	content: "\e608";
