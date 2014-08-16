@@ -77,10 +77,23 @@ describe('User lib', function () {
     
   });
   
-  it('should confirm user again', function (done) {
+  it('should not confirm user again', function (done) {
+    
     userLib.confirmUser('1111111111111111111111111111111111111111111111111111111111111111', function (data) {
       userLib.confirmUser('1111111111111111111111111111111111111111111111111111111111111111', function (data) {
         data.should.be.false;
+        done();
+      });
+    });
+    
+  });
+  
+  it('should chacge user name', function (done) {
+    
+    userLib.setName('Thomas', user._id, function (data) {
+      data.should.be.true;
+      
+      User.findOne({name: 'Thomas'}, function (err, user) {
         done();
       });
     });
