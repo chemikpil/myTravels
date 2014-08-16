@@ -19,8 +19,9 @@ var Contentedit = function (options) {
   
   var ajax = function (data, success) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", url + '?data=' + data, true);
+    xhr.open("POST", url , true);
     
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onload = function(){
       var error = false;
       var content = xhr.responseText;
@@ -30,7 +31,7 @@ var Contentedit = function (options) {
       }
     };
     
-    xhr.send();
+    xhr.send('data='+data);
   };
   
   var setOptions = function () {

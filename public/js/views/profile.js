@@ -16,7 +16,7 @@ define([
     startContetnedit: function () {
       new Contentedit({
         element: document.querySelector('.user__name'),
-        url: '/'
+        url: '/api/user/setname'
       });
       new Contentedit({
         element: document.querySelector('.user__location'),
