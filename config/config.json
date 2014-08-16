@@ -34,6 +34,62 @@
         "arguments": [ "path:./.build" ]
       }
     },
+    
+    "json": {
+      "enabled": true,
+      "priority": 60,
+      "module": {
+        "name": "body-parser",
+        "method": "json"
+      }
+    },
+
+    "urlencoded": {
+      "enabled": true,
+      "priority": 70,
+      "module": {
+        "name": "body-parser",
+        "method": "urlencoded",
+        "arguments": [{ "extended": true }]
+      }
+    },
+
+    "multipart": {
+      "enabled": true,
+      "priority": 80,
+      "module": "kraken-js/middleware/multipart"
+    },
+    
+    "cookieParser": {
+      "enabled": true,
+      "priority": 90,
+      "module": {
+        "name": "cookie-parser",
+        "arguments": [ "keyboard cat" ]
+      }
+    },
+    
+    "session": {
+      "enabled": true,
+      "priority": 100,
+      "module": {
+        "name": "express-session",
+        "arguments": [
+          {
+            "key": "",
+            "secret": "keyboard cat",
+            "cookie": {
+              "path": "/",
+              "httpOnly": true,
+              "maxAge": null
+            },
+            "resave": true,
+            "saveUninitialized": true,
+            "proxy": null
+          }
+        ]
+      }
+    },
 
     "router": {
       "module": {
@@ -70,7 +126,7 @@
     
     "isAuthenticated": {
       "enabled": true,
-      "priority": 111,
+      "priority": 112,
       "module": {
         "name": "path:./lib/auth",
         "method": "isAuthenticated"
@@ -79,10 +135,33 @@
         
     "injectUser": {
       "enabled": true,
-      "priority": 112,
+      "priority": 113,
       "module": {
         "name": "path:./lib/auth",
         "method": "injectUser"
+      }
+    },
+    
+    "appsec": {
+      "module": {
+        "arguments": [
+          {
+            "xframe": "SAMEORIGIN",
+            "p3p": false,
+            "csp": false
+          }
+        ]
+      }
+    },
+    
+    "csrf": {
+      "enabled": true,
+      "priority": 111,
+      "route": "/((?!api))*",
+      "module": {
+        "name": "lusca",
+        "method": "csrf",
+        "arguments": [ {} ]
       }
     }
   },
