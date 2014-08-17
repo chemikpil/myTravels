@@ -88,12 +88,26 @@ describe('User lib', function () {
     
   });
   
-  it('should chacge user name', function (done) {
+  it('should change user name', function (done) {
     
     userLib.setName('Thomas', user._id, function (data) {
       data.should.be.true;
       
       User.findOne({name: 'Thomas'}, function (err, user) {
+        user.should.exist;
+        done();
+      });
+    });
+    
+  });
+  
+  it('should change user location', function (done) {
+    
+    userLib.setLocation('Pila, Poland', user._id, function (data) {
+      data.should.be.true;
+      
+      User.findOne({location: 'Pila, Poland'}, function (err, user) {
+        user.should.exist;
         done();
       });
     });

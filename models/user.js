@@ -10,6 +10,7 @@ var UserModel = function () {
     email: {type: String, unique: true},
     password: String,
     name: {type: String, default: ''},
+    location: {type: String, default: ''},
     trips: {type: Number, default: 0},
     followers: {type: Number, default: 0},
     gravatar: String,
