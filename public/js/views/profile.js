@@ -20,7 +20,7 @@ define([
       });
       new Contentedit({
         element: document.querySelector('.user__location'),
-        url: '/'
+        url: '/api/user/setlocation'
       });
     }
     

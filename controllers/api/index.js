@@ -25,5 +25,22 @@ module.exports = function (router) {
       });
     });
   });
+  
+  router.post('/user/setlocation', function (req, res) {
+    var location = req.body.data;
+    var user = res.locals.user;
+    
+    if (!user) {
+      res.json(error);
+    }
+    
+    userLib.setLocation(location, user._id, function () {
+      res.format({
+        json: function () {
+          res.json(req.body);
+        }
+      });
+    });
+  });
 
 };
