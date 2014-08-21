@@ -1,6 +1,5 @@
 'use strict';
 
-
 var ProfileModel = require('../../models/profile');
 var UserModel = require('../../models/user');
 
