@@ -29,6 +29,7 @@ define([
     initCoverUploader: function () {
       new Coveruploader({
         element: document.querySelector('.cover-uploader'),
+        cover: document.querySelector('.cover'),
         url: '/'
       });
     }
