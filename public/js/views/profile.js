@@ -1,4 +1,4 @@
-/* global $: false, Crime: false */
+/* global $, Crime, Contentedit */
 
 define([
   'backbone',
@@ -10,10 +10,10 @@ define([
     el: 'body',
     
     initialize: function () {
-      this.startContetnedit();
+      this.initContetnedit();
     },
     
-    startContetnedit: function () {
+    initContetnedit: function () {
       new Contentedit({
         element: document.querySelector('.user__name'),
         url: '/api/user/setname'
