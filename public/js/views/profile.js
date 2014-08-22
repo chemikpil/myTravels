@@ -2,6 +2,7 @@
 
 define([
   'backbone',
+  'libs/coveruploader/coveruploader',
   'libs/contentedit/contentedit'
 ], function (Backbone) {
   'use strict';
@@ -11,6 +12,7 @@ define([
     
     initialize: function () {
       this.initContetnedit();
+      this.initCoverUploader();
     },
     
     initContetnedit: function () {
@@ -22,10 +24,16 @@ define([
         element: document.querySelector('.user__location'),
         url: '/api/user/setlocation'
       });
+    },
+    
+    initCoverUploader: function () {
+      new Coveruploader({
+        element: document.querySelector('.cover-uploader'),
+        url: '/'
+      });
     }
     
   });
   
   return Profile;
-}); 
-    
+});
