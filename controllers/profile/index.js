@@ -2,6 +2,7 @@
 
 var ProfileModel = require('../../models/profile');
 var UserModel = require('../../models/user');
+var userLib = require('../../lib/user')();
 
 module.exports = function (router) {
 
@@ -45,9 +46,9 @@ module.exports = function (router) {
     }
     
     var fs = require('fs');
-    var newName = +new Date();
+    var newName = +new Date() + '_' + req.files.coverphoto.name;
     var cover_dir = __dirname + '/../../public/img/user_covers/';
-    var serverPath = cover_dir + newName + '_' + req.files.coverphoto.name;
+    var serverPath = cover_dir + newName;
 
     if (!fs.existsSync(cover_dir)) {
       fs.mkdirSync(cover_dir, '0744');
@@ -63,8 +64,10 @@ module.exports = function (router) {
 		  });
           return;
         }
- 
-        res.send('success');
+        
+        userLib.saveCoverPhoto('/img/user_covers/' + newName, res.locals.user._id, function (result) {
+          res.send('success');
+        });
       }
     );
   });
