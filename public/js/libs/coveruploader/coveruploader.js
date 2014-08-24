@@ -5,6 +5,7 @@ var Coveruploader = function (options) {
   var url;
   var input;
   var cover;
+  var selectedFile = null;
   
   var classes = {
     active: 'is-active'
@@ -40,9 +41,9 @@ var Coveruploader = function (options) {
   };
   
   var handleFileSelect = function (event) {
-    var file = event.target.files[0];
+    selectedFile = event.target.files[0];
     
-    renderFile(file);
+    renderFile(selectedFile);
   };
   
   var renderFile = function (file) {
@@ -55,6 +56,33 @@ var Coveruploader = function (options) {
     })(file);
     
     reader.readAsDataURL(file);
+    ajax(function () {
+      console.log('Uploaded!');
+    });
+  };
+  
+  var ajax = function (success) {
+    var xhr = new XMLHttpRequest();
+    var formData = new FormData();
+    var csrf = element.querySelector('[name=_csrf]');
+    
+    formData.append(input.name, selectedFile, selectedFile.name);
+    formData.append(csrf.name, csrf.value);
+    
+    xhr.open("POST", url , true);
+    
+    xhr.onload = function(){
+      var error = false;
+      var content = xhr.responseText;
+
+      if (!error && (xhr.status >= 200 && xhr.status < 300)){
+        success(content);
+      }
+    };
+    
+    console.log(formData);
+    
+    xhr.send(formData);
   };
   
   init();
