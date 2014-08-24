@@ -4,7 +4,7 @@
     <form action="#" class="cover-uploader" enctype="multipart/form-data">
       <input type="hidden" name="_csrf" value="{_csrf}">
       <label class="cover-uploader__label">Add a cover photo! Drag and drop here or click to upload.</label>
-      <input type="file" name="cover-photo" class="cover-uploader__controll">
+      <input type="file" name="coverphoto" class="cover-uploader__controll">
     </form>
   {/user.cover_photo}
   

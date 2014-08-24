@@ -38,5 +38,29 @@ module.exports = function (router) {
       }
     });
   });
+  
+  router.post('/uploadCover', function (req, res) {    
+    if (!res.locals.user) {
+      res.send('Bad Authentication data');
+    }
+    
+    var newName = +new Date();
+    var serverPath = __dirname + '/../../public/img/user_covers/' + newName + '_' + req.files.coverphoto.name;
+    
+    require('fs').rename(
+      req.files.coverphoto.path,
+      serverPath,
+      function (err) {
+        if(err) {
+		  res.send({
+            error: 'Ah crap! Something bad happened'
+		  });
+          return;
+        }
+ 
+        res.send('success');
+      }
+    );
+  });
 
 };
