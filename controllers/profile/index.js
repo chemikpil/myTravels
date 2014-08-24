@@ -44,10 +44,16 @@ module.exports = function (router) {
       res.send('Bad Authentication data');
     }
     
+    var fs = require('fs');
     var newName = +new Date();
-    var serverPath = __dirname + '/../../public/img/user_covers/' + newName + '_' + req.files.coverphoto.name;
+    var cover_dir = __dirname + '/../../public/img/user_covers/';
+    var serverPath = cover_dir + newName + '_' + req.files.coverphoto.name;
+
+    if (!fs.existsSync(cover_dir)) {
+      fs.mkdirSync(cover_dir, '0744');
+    }
     
-    require('fs').rename(
+    fs.rename(
       req.files.coverphoto.path,
       serverPath,
       function (err) {

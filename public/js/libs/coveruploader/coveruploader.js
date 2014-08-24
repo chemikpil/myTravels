@@ -57,7 +57,7 @@ var Coveruploader = function (options) {
     
     reader.readAsDataURL(file);
     ajax(function () {
-      console.log('Uploaded!');
+      input.value = '';
     });
   };
   
@@ -79,8 +79,6 @@ var Coveruploader = function (options) {
         success(content);
       }
     };
-    
-    console.log(formData);
     
     xhr.send(formData);
   };
