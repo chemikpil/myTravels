@@ -1,4 +1,4 @@
-/* global $, Crime, Contentedit */
+/* global $, Crime, Contentedit, Coveruploader */
 
 define([
   'backbone',
