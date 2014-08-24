@@ -25,7 +25,6 @@ module.exports = function (router) {
     if (param.indexOf('.') > 0) {
       param = param.replace('.', ' ');
       query = {name: param};
-      console.log(query);
     } else {
       query = {_id: param};
     }
