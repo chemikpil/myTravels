@@ -86,33 +86,9 @@ describe('/profile', function () {
       });
   });
   
-  it('should render profile page with specified name', function (done) {
-    request(mock)
-      .get('/profile/Thomas.Tester')
-      .expect(200)
-      .redirects(2)
-      .expect('Content-Type', /html/)
-      .expect(/Thomas Tester/)
-      .end(function (err, res) {
-        done(err);
-      });
-  });
-  
   it('should redirect to home page if the specified ID does not exist', function (done) {
     request(mock)
       .get('/profile/12345567432')
-      .expect(200)
-      .redirects(2)
-      .expect('Content-Type', /html/)
-      .expect(/Home page/)
-      .end(function (err, res) {
-        done(err);
-      });
-  });
-  
-  it('should redirect to home page if the specified name does not exist', function (done) {
-    request(mock)
-      .get('/profile/Tomas.Tomas')
       .expect(200)
       .redirects(2)
       .expect('Content-Type', /html/)
