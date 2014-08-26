@@ -1,5 +1,7 @@
 {>"layouts/master" /}
 
+{<title}{title}{/title}
+
 {<body}
     
     {>"layouts/header" /}

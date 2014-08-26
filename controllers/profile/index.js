@@ -16,6 +16,7 @@ module.exports = function (router) {
     if (res.locals.user) {
       model.profile = res.locals.user;
       model.class = 'class=is-editor';
+      model.title = model.profile.name || 'myTravels - profile';
       res.render('profile/index', model);
     } else {
       var param = req.params.id;
@@ -24,6 +25,7 @@ module.exports = function (router) {
       UserModel.findOne(query, function (err, user) {
         if (user) {
           model.profile = JSON.parse(JSON.stringify(user));
+          model.title = model.profile.name || 'myTravels - profile';
           res.render('profile/index', model);
         } else {
           res.redirect('/'); 
