@@ -1,9 +1,18 @@
 <div class="timeline">
-  <h3 class="timeline__title"><i class="icon-airplan"></i><br> {@pre type="content" key="myTravels"/}</h3>
+  <h3 class="timeline__title">
+    <i class="icon-airplan"></i><br> 
+    {@pre type="content" key="myTravels"/}
+  </h3>
   
-  {#trips}
+  {#user}
+    <a href="trip/add" class="button button--small timeline__add-button">{@pre type="content" key="addNewTrip"/}</a>
+  {/user}
   
-  {:else}
-    {@pre type="content" key="noTrips"/}
-  {/trips}
+  <div class="timeline__trips">
+    {#trips}
+  
+    {:else}
+      {@pre type="content" key="noTrips"/}
+    {/trips}
+  </div>
 </div>
