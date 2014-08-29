@@ -1,16 +1,18 @@
-<div class="cover cover--profile" style="background-image: url({profile.cover_photo})">
+{#profile}
+<div class="cover cover--profile" style="background-image: url({cover_photo})">
  
-  {#user}
+  {#logged}
     <form action="#" class="cover-uploader" enctype="multipart/form-data">
       <input type="hidden" name="_csrf" value="{_csrf}">
       <label class="cover-uploader__label">Add a cover photo! Drag and drop here or click to upload.</label>
       <input type="file" name="coverphoto" class="cover-uploader__controll">
     </form>
-  {/user}
+  {/logged}
   
-  <img src="{profile.gravatar}?s=170" alt="" width="170" height="170" class="user__avatar">
+  <img src="{gravatar}?s=170" alt="" width="170" height="170" class="user__avatar">
   <br>
-  <p class="user__name" {#user}data-save="save" data-empty='{@pre type="content" key="emptyName"/}'{/user}>{profile.name}</p>
+  <p class="user__name" {#user}data-save="save" data-empty='{@pre type="content" key="emptyName"/}'{/user}>{name}</p>
   <br>
-  <p class="user__location" {#user}data-save="save" data-empty='{@pre type="content" key="emptyLocation"/}'{/user}>{profile.location}</p>
+  <p class="user__location" {#user}data-save="save" data-empty='{@pre type="content" key="emptyLocation"/}'{/user}>{location}</p>
 </div>
+{/profile}

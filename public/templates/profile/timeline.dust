@@ -4,17 +4,17 @@
     {@pre type="content" key="myTravels"/}
   </h3>
   
-  {#user}
-    <a href="trip/add" class="button button--small timeline__add-button">{@pre type="content" key="addNewTrip"/}</a>
-  {/user}
-  
   {#profile}
-  <div class="timeline__trips">
-    {#trips}
-      
-    {:else}
-      {@pre type="content" key="noTrips"/}
-    {/trips}
-  </div>
+    {#logged}
+      <a href="trip/add" class="button button--small timeline__add-button">{@pre type="content" key="addNewTrip"/}</a>
+    {/logged}
+  
+    <div class="timeline__trips">
+      {#trips}
+
+      {:else}
+        {@pre type="content" key="noTrips"/}
+      {/trips}
+    </div>
   {/profile}
 </div>
