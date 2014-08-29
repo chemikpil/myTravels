@@ -45,7 +45,6 @@ describe('User model', function () {
     User.findOne({email: 'test@mytravels.com'}, function (err, account) {
       should.exist(account);
       account.role.should.be.equal('user');
-      account.trips.should.be.equal(0);
       done();
     });
     
