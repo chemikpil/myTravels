@@ -6,22 +6,22 @@ var userLib = require('../../lib/user')();
 
 module.exports = function (router) {
 
-  var model = new ProfileModel();
-
-  router.get('/', function (req, res) {    
+  router.get('/', function (req, res) {
     res.redirect('/profile/' + res.locals.user._id);
   });
     
-  router.get('/:id', function (req, res) {
-    if (res.locals.user) {
+  router.get('/:id' , function (req, res) {
+    var param = req.params.id;
+    var query = {_id: param};
+    var model = new ProfileModel();
+
+    if (res.locals.user && res.locals.user._id === param) {
       model.profile = res.locals.user;
+      model.profile.logged = true;
       model.class = 'class=is-editor';
       model.title = model.profile.name || 'myTravels - profile';
       res.render('profile/index', model);
     } else {
-      var param = req.params.id;
-      var query = {_id: param};
-
       UserModel.findOne(query, function (err, user) {
         if (user) {
           model.profile = JSON.parse(JSON.stringify(user));
