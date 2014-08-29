@@ -1,10 +1,20 @@
+{#profile}
 <ul class="stats">
   <li class="stats__item">
-    {profile.trips}
+    {#trips}
+      {trips}
+    {:else}
+      0
+    {/trips}
     <span>{@pre type="content" key="trips"/}</span>
   </li>
   <li class="stats__item">
-    {profile.followers}
+    {#followers}
+      {followers}
+    {:else}
+      0
+    {/followers}
     <span>{@pre type="content" key="followers"/}</span>
   </li>
 </ul>
+{/profile}
