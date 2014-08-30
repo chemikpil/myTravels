@@ -46,9 +46,6 @@ describe('/profile', function () {
       email: 'test@mytravels.com',
       password: '12345678',
       name: 'Thomas Tester',
-      trips: 0,
-      role: 'user',
-      registered: new Date(),
       confirm_token: '12341234512345',
       confirmed: true
     });

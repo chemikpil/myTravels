@@ -44,11 +44,7 @@ describe('/sign-in', function () {
       _id: ObjectId,
       email: 'test@mytravels.com',
       password: '12345678',
-      name: 'Thomas',
-      surname: 'Tester',
-      trips: 0,
-      role: 'user',
-      registered: new Date(),
+      name: 'Thomas Tester',
       confirm_token: '12341234512345',
       confirmed: true
     });
