@@ -3,6 +3,7 @@
 'use strict';
 
 require('../../models/user');
+require('../../models/trip');
 
 var chai = require('chai');
 var should = chai.should();
@@ -16,106 +17,108 @@ var ObjectId = mongoose.Types.ObjectId();
 
 
 var user;
-  
-beforeEach(function (done) {
-  mockgoose.reset();
-
-  user = new User({
-    _id: ObjectId,
-    email: 'test@mytravels.com',
-    password: '12345678'
-  });
-
-  user.save();
-  done();
-});
-
-
-afterEach(function (done) {
-  mockgoose.reset();
-  done();
-});
-
 
 describe('User model', function () {
   
-  
-  it('user should be created', function (done) {
-    
-    User.findOne({email: 'test@mytravels.com'}, function (err, account) {
-      should.exist(account);
-      account.role.should.be.equal('user');
-      done();
+  beforeEach(function (done) {
+    mockgoose.reset();
+
+    user = new User({
+      _id: ObjectId,
+      email: 'test@mytravels.com',
+      password: '12345678',
+      trips: []
     });
-    
+
+    user.save();
+    done();
+  });
+
+
+  afterEach(function (done) {
+    mockgoose.reset();
+    done();
   });
   
   
-  it('password should match', function () {
-    
-    var password = user.passwordMatches('12345678');
-    password.should.be.true;
-    
-  });
+  describe('create', function () {
   
-  
-  it('password should not match', function () {
-    
-    var password = user.passwordMatches('12345677');
-    password.should.be.false;
-    
-  });
-  
-  
-  it('user should can set a name', function (done) {
-    
-    user.name = 'Alice';
-    user.save(function (err, newUser) {
-      newUser.name.should.be.equal('Alice');
-      done();
+    it('user should be created', function (done) {
+
+      User.findOne({email: 'test@mytravels.com'}, function (err, account) {
+        should.exist(account);
+        account.role.should.be.equal('user');
+        done();
+      });
+
     });
-    
-  });
-  
-  
-  it('user should have a confirm token', function (done) {
-    
-    User.findOne({email: 'test@mytravels.com'}, function (err, account) {
-      should.exist(account.confirm_token);
-      account.confirm_token.length.should.be.equal(64);
-      done();
+
+
+    it('password should match', function () {
+
+      var password = user.passwordMatches('12345678');
+      password.should.be.true;
+
     });
-    
-  });
-  
-  it('user should have a gravatar url', function (done) {
-    
-    User.findOne({email: 'test@mytravels.com'}, function (err, account) {
-      should.exist(account.gravatar);
-      account.gravatar.length.should.be.equal(67);
-      done();
+
+
+    it('password should not match', function () {
+
+      var password = user.passwordMatches('12345677');
+      password.should.be.false;
+
     });
-    
-  });
-  
-  
-  it('user should not be confirmed', function () {
-    
-    var confirmed = user.isConfirmed();
-    confirmed.should.be.false;
-    
-  });
-  
-  
-  it('user sould be confirmed', function (done) {
-    
-    user.confirmed = true;
-    user.save(function (err, savedUser) {
-      savedUser.confirmed.should.be.true;
-      done();
+
+
+    it('user should can set a name', function (done) {
+
+      user.name = 'Alice';
+      user.save(function (err, newUser) {
+        newUser.name.should.be.equal('Alice');
+        done();
+      });
+
     });
-    
+
+
+    it('user should have a confirm token', function (done) {
+
+      User.findOne({email: 'test@mytravels.com'}, function (err, account) {
+        should.exist(account.confirm_token);
+        account.confirm_token.length.should.be.equal(64);
+        done();
+      });
+
+    });
+
+    it('user should have a gravatar url', function (done) {
+
+      User.findOne({email: 'test@mytravels.com'}, function (err, account) {
+        should.exist(account.gravatar);
+        account.gravatar.length.should.be.equal(67);
+        done();
+      });
+
+    });
+
+
+    it('user should not be confirmed', function () {
+
+      var confirmed = user.isConfirmed();
+      confirmed.should.be.false;
+
+    });
+
+
+    it('user sould be confirmed', function (done) {
+
+      user.confirmed = true;
+      user.save(function (err, savedUser) {
+        savedUser.confirmed.should.be.true;
+        done();
+      });
+
+    });
+  
   });
-  
-  
 });
