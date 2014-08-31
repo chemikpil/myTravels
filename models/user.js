@@ -5,13 +5,15 @@ var bcrypt = require('bcrypt');
 var crypto = require('crypto');
 var cryptoConf = require('../lib/crypto');
 
+var ObjectId = mongoose.Schema.Types.ObjectId;
+
 var UserModel = function () {
   var userSchema = mongoose.Schema({
     email: {type: String, unique: true},
     password: String,
     name: String,
     location: String,
-    trips: Number,
+    trips: [{type: ObjectId, ref: 'Trip' }],
     followers: Number,
     gravatar: String,
     cover_photo: String,

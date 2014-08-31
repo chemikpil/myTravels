@@ -13,12 +13,12 @@ var mockgoose = require('mockgoose');
 mockgoose(mongoose);
 
 var User = mongoose.model('User');
+var Trip = mongoose.model('Trip');
 var ObjectId = mongoose.Types.ObjectId();
 
-
-var user;
-
 describe('User model', function () {
+  
+  var user, trip;
   
   beforeEach(function (done) {
     mockgoose.reset();
@@ -30,8 +30,20 @@ describe('User model', function () {
       trips: []
     });
 
-    user.save();
-    done();
+    trip = new Trip({
+      title: 'My first Trip',
+      location: 'Pila, Poland',
+      author: user._id
+    });
+
+    user.save(function () {
+      trip.save(function () {
+        user.trips.push(trip._id);
+        user.save(function (){
+          done(); 
+        });
+      });
+    });
   });
 
 
@@ -115,6 +127,16 @@ describe('User model', function () {
       user.confirmed = true;
       user.save(function (err, savedUser) {
         savedUser.confirmed.should.be.true;
+        done();
+      });
+
+    });
+    
+    it('user sould have ref to trips', function (done) {
+      
+      User.findOne({email: 'test@mytravels.com'}).populate('trips').exec(function (err, account) {
+        should.exist(account);
+        account.trips[0].title.should.be.equal('My first Trip');
         done();
       });
 
