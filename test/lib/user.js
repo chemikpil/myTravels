@@ -17,29 +17,26 @@ var ObjectId = mongoose.Types.ObjectId();
 
 
 var user;
-  
-beforeEach(function (done) {
-  mockgoose.reset();
-
-  user = new User({
-    _id: ObjectId,
-    email: 'test@mytravels.com',
-    password: '12345678',
-    confirm_token: '1111111111111111111111111111111111111111111111111111111111111111'
-  });
-
-  user.save();
-  done();
-});
-
-
-afterEach(function (done) {
-  mockgoose.reset();
-  done();
-});
 
 describe('User lib', function () {
   
+  before(function (done) {
+    user = new User({
+      _id: ObjectId,
+      email: 'test@mytravels.com',
+      password: '12345678',
+      confirm_token: '1111111111111111111111111111111111111111111111111111111111111111'
+    });
+
+    user.save();
+    done();
+  });
+
+
+  after(function (done) {
+    mockgoose.reset();
+    done();
+  });
   
   it('email adress should exist', function (done) {
     
