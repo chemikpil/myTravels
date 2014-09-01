@@ -3,9 +3,9 @@
 'use strict';
 
 
-var kraken = require('kraken-js'),
-    express = require('express'),
-    request = require('supertest');
+var kraken = require('kraken-js');
+var express = require('express');
+var request = require('supertest');
 
 
 describe('/api', function () {
