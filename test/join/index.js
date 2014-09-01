@@ -24,7 +24,6 @@ describe('/join', function () {
 
   var app, mock;
 
-
   beforeEach(function (done) {
     app = express();
     app.on('start', done);
@@ -34,8 +33,6 @@ describe('/join', function () {
     }));
 
     mock = app.listen(1337);
-    
-    mockgoose.reset();
 
     user = new User({
       _id: ObjectId,
