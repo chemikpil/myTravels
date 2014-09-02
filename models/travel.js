@@ -4,8 +4,8 @@ var mongoose = require('mongoose');
 
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
-var TripModel = function () {
-  var tripSchema = mongoose.Schema({
+var TravelModel = function () {
+  var travelSchema = mongoose.Schema({
     title: String,
     url: {type: String, unique: true},
     content: String,
@@ -18,7 +18,7 @@ var TripModel = function () {
     mode: {type: String, default: 'draft'}
   });
   
-  return mongoose.model('Trip', tripSchema);
+  return mongoose.model('Travel', travelSchema);
 };
 
-module.exports = new TripModel();
+module.exports = new TravelModel();
