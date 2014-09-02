@@ -3,7 +3,7 @@
 'use strict';
 
 require('../../models/user');
-require('../../models/trip');
+require('../../models/travel');
 
 var chai = require('chai');
 var should = chai.should();

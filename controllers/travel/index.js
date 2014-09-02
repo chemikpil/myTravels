@@ -1,17 +1,17 @@
 'use strict';
 
 
-var TripModel = require('../../models/trip');
+var TravelModel = require('../../models/travel');
 
 
 module.exports = function (router) {
 
-    var model = new TripModel();
+    var model = new TravelModel();
 
 
     router.get('/', function (req, res) {
         
-        res.render('trip/index', model);
+        res.render('travel/index', model);
         
     });
 
