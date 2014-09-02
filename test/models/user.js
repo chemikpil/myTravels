@@ -3,7 +3,7 @@
 'use strict';
 
 require('../../models/user');
-require('../../models/trip');
+require('../../models/travel');
 
 var chai = require('chai');
 var should = chai.should();
@@ -13,12 +13,12 @@ var mockgoose = require('mockgoose');
 mockgoose(mongoose);
 
 var User = mongoose.model('User');
-var Trip = mongoose.model('Trip');
+var Travel = mongoose.model('Travel');
 var ObjectId = mongoose.Types.ObjectId();
 
 describe('User model', function () {
   
-  var user, trip;
+  var user, travel;
   
   beforeEach(function (done) {
     mockgoose.reset();
@@ -30,15 +30,15 @@ describe('User model', function () {
       trips: []
     });
 
-    trip = new Trip({
+    travel = new Travel({
       title: 'My first Trip',
       location: 'Pila, Poland',
       author: user._id
     });
 
     user.save(function () {
-      trip.save(function () {
-        user.trips.push(trip._id);
+      travel.save(function () {
+        user.trips.push(travel._id);
         user.save(function (){
           done(); 
         });
