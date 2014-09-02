@@ -1,0 +1,19 @@
+<header class="cover cover--travel" style="background-image: url({cover_photo})">
+
+  <div class="cover__content">
+   
+    <img src="{author.gravatar}?s=50" alt="" width="50" height="50" class="user__avatar">
+    <p class="user__name">{author.name}</p>
+    
+    <h2>{title}</h2>
+    <h3>{location}</h3>
+    
+    <div class="cover__footer row">
+      <div class="col-6 likes"></div>
+      
+      <p class="col-6 date">{date}</p>
+    </div>
+    
+  </div>
+
+</header>

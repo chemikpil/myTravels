@@ -3,5 +3,9 @@
 {<body}
   {>"layouts/header" /}
   
-  
+  <article>
+    {>"travel/cover" /}
+    
+    {content}
+  </article>
 {/body}
