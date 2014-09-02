@@ -13,7 +13,7 @@ var UserModel = function () {
     password: String,
     name: String,
     location: String,
-    trips: [{type: ObjectId, ref: 'Trip' }],
+    travels: [{type: ObjectId, ref: 'Travel' }],
     followers: Number,
     gravatar: String,
     cover_photo: String,
