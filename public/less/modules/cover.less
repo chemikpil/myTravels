@@ -10,6 +10,9 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  
+  text-align: center; 
+  
   z-index: 1;
 }
 
@@ -72,4 +75,17 @@
   height: 100%;
   
   opacity: 0;
+}
+
+/** Cover profile **/
+
+.cover--profile {
+  margin-bottom: 180px;
+  
+  & .user__avatar {
+    position: relative;
+    margin-top: -85px;
+    
+    z-index: 2;
+  }
 }
