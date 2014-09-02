@@ -38,7 +38,7 @@ describe('User model', function () {
 
     user.save(function () {
       travel.save(function () {
-        user.trips.push(travel._id);
+        user.travels.push(travel._id);
         user.save(function (){
           done(); 
         });
@@ -132,11 +132,11 @@ describe('User model', function () {
 
     });
     
-    it('user sould have ref to trips', function (done) {
+    it('user sould have ref to travel', function (done) {
       
-      User.findOne({email: 'test@mytravels.com'}).populate('trips').exec(function (err, account) {
+      User.findOne({email: 'test@mytravels.com'}).populate('travels').exec(function (err, account) {
         should.exist(account);
-        account.trips[0].title.should.be.equal('My first Trip');
+        account.travels[0].title.should.be.equal('My first Trip');
         done();
       });
 
