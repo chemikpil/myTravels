@@ -8,10 +8,11 @@
     <h2>{title}</h2>
     <h3>{location}</h3>
     
-    <div class="cover__footer row">
-      <div class="col-6 likes"></div>
-      
-      <p class="col-6 date">{date}</p>
+    <div class="cover__footer container">
+      <div class="row">
+        <div class="col-6 likes"></div>
+        <div class="col-6 date">{date}</div>
+      </div>
     </div>
     
   </div>
