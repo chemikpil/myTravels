@@ -7,15 +7,14 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 var TravelModel = function () {
   var travelSchema = mongoose.Schema({
     title: String,
-    url: {type: String, unique: true},
-    content: String,
+    cover_photo: String,
     location: String,
-    start_date: Date,
-    end_date: Date,
-    weather: String,
+    date: Date,
+    sections: [{type: Object}],
     author: {type: ObjectId, ref: 'User'},
     fans: [{type: Number, ref: 'User'}],
-    mode: {type: String, default: 'draft'}
+    mode: {type: String, default: 'draft'},
+    url: {type: String, unique: true},
   });
   
   return mongoose.model('Travel', travelSchema);
