@@ -3,7 +3,7 @@
   <div class="cover__content">
    
     <img src="{author.gravatar}?s=50" alt="" width="50" height="50" class="user__avatar">
-    <p class="user__name user__name--travel">{author.name}</p>
+    <p class="user__name user__name--travel"><a href="/profile/{author._id}">{author.name}</a></p>
     
     <h2 class="travel__title">{title}</h2>
     <h3 class="travel__location">{location}</h3>
