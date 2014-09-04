@@ -1,0 +1,53 @@
+.travel-section {
+  text-align: center; 
+}
+
+.travel-section__title {
+  display: inline-block;
+  position: relative;
+  margin: 50px 0 30px;
+  padding-bottom: 30px;
+  
+  font-size: 5rem;
+}
+
+.travel-section__title:after {
+  content: "";
+  display: block;
+  width: 80%;
+  height: 1px;
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  margin-left: -40%;
+  
+  border-top: 1px solid rgba(64, 80, 91, .2);
+}
+
+.travel-section__content {
+  margin-top: 0;
+  
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+}
+
+.travel-section__photos {
+  margin: 0;
+  padding: 0;
+  
+  list-style: none;
+}
+
+@media screen and (min-width: 600px) {
+  .travel-section__photos {
+    display: flex;
+  }
+}
+
+.travel-section__photo {
+  margin: 15px; 
+}
+
+.travel-section__photo > img {
+  max-width: 100%; 
+}
