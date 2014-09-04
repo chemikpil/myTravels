@@ -6,12 +6,19 @@ define(['backbone'], function (Backbone) {
   var AppRouter = Backbone.Router.extend({
     routes: {
       'join': 'join',
-      'profile*def': 'profile'
+      'profile*def': 'profile',
+      'travel*def': 'travel'
     },
     
     join: function () {
       require(['views/join'], function(Join) {
         new Join();
+      });
+    },
+    
+    travel: function () {
+      require(['views/travel'], function(Travel) {
+        new Travel();
       });
     },
     
