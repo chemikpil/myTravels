@@ -10,5 +10,10 @@
       {>"travel/section" /}
     {/sections}
     
+    <div class="container author-footer">
+      <img src="{author.gravatar}?s=50" alt="" width="50" height="50" class="user__avatar"><br>
+      <p class="user__name user__name--travel">{author.name}</p>
+    </div>
+    
   </article>
 {/body}
