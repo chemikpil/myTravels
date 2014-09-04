@@ -6,6 +6,9 @@
   <article>
     {>"travel/cover" /}
     
-    {content}
+    {#sections}
+      {>"travel/section" /}
+    {/sections}
+    
   </article>
 {/body}

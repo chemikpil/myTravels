@@ -1,0 +1,11 @@
+<section class="travel-section container">
+  <h3 class="travel-section__title">{title}</h3>
+  
+  <p class="travel-section__content">{content}</p>
+  
+  <ul class="travel-section__photos">
+    {#photos}
+      <li class="travel-section__photo"><img src="{.}" alt=""></li>
+    {/photos}
+  </ul>
+</section>
