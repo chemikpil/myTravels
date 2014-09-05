@@ -32,15 +32,15 @@ module.exports = function (router) {
     var model = {};
     
     TravelModel.findOne(query)
-    .populate('author')
-    .exec(function (err, travel) {
-      if (travel) {
-        model = JSON.parse(JSON.stringify(travel));
-        res.render('travel/index', model);
-      } else {
-        res.redirect('/'); 
-      }
-    });
+      .populate('author')
+      .exec(function (err, travel) {
+        if (travel) {
+          model = JSON.parse(JSON.stringify(travel));
+          res.render('travel/index', model);
+        } else {
+          res.redirect('/'); 
+        }
+      });
   });
 
 };
