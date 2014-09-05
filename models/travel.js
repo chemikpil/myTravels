@@ -15,6 +15,15 @@ var TravelModel = function () {
     fans: [{type: Number, ref: 'User'}],
     mode: {type: String, default: 'draft'},
     url: {type: String, unique: true},
+    created: {type: Date, default: Date.now}
+  });
+  
+  travelSchema.pre('save', function (next) {
+    var travel = this;
+    
+    travel.url = travel._id;
+    
+    next();
   });
   
   return mongoose.model('Travel', travelSchema);
