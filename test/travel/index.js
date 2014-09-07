@@ -21,7 +21,6 @@ var User = mongoose.model('User');
 var Travel = mongoose.model('Travel');
 var ObjectId = mongoose.Types.ObjectId();
 
-
 var user, travel, app, mock;
 
 describe('Travel model', function () {
@@ -34,7 +33,7 @@ describe('Travel model', function () {
     }));
     
     app.all('/', function (req, res) {
-      res.status(200).send('Home page');
+      res.send('Home page');
     });
     
     mock = app.listen(1337);
@@ -57,7 +56,6 @@ describe('Travel model', function () {
     user.save(function () {
       travel.save();
     });
-    done();
   });
 
 
@@ -67,10 +65,25 @@ describe('Travel model', function () {
   });
   
   it('should say "My first Trip"', function (done) {
-    done();
+    request(mock)
+      .get('/travel/' + travel._id)
+      .expect(200)
+      .expect('Content-Type', /html/)
+      .expect(/My first Trip/)
+      .end(function (err, res) {
+        done(err);
+    });
   });
 
   it('should redirect to home page if travel url is wrong', function (done) {
-    done();
+    request(mock)
+      .get('/travel/13423412')
+      .expect(200)
+      .redirects(1)
+      .expect('Content-Type', /html/)
+      .expect(/Home page/)
+      .end(function (err, res) {
+        done(err);
+    });
   });
 });
