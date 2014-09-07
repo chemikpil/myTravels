@@ -2,6 +2,7 @@
 
 
 var TravelModel = require('../../models/travel');
+var userLib = require('../../lib/user')();
 
 
 module.exports = function (router) {
@@ -11,18 +12,21 @@ module.exports = function (router) {
   });
   
   router.get('/add', function (req, res) {
-    if (!res.locals.user) {
+    var userId = res.locals.user._id;
+    if (!userId) {
       req.session.goingTo = '/travel/add';
       res.redirect('/sign-in');
       return;
     }
     
     var model = new TravelModel({
-      author: res.locals.user._id
+      author: userId
     });
-    
-    model.save(function (err) {
-      res.redirect('/travel/' + model._id);
+  
+    userLib.addTravel(model._id, userId, function () {
+      model.save(function (err) {
+        res.redirect('/travel/' + model._id);
+      });
     });
   });
   
