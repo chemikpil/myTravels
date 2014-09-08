@@ -32,14 +32,19 @@ module.exports = function (router) {
   
   router.get('/:id' , function (req, res) {
     var param = req.params.id;
-    var query = {_id: param};
+    var query = {url: param};
     var model = {};
     
     TravelModel.findOne(query)
       .populate('author')
       .exec(function (err, travel) {
-        if (travel) {
+        if (travel) {        
           model = JSON.parse(JSON.stringify(travel));
+          
+          if (res.locals.user && travel.author._id+ '' === res.locals.user._id) {
+            model.isAuthor = true;
+          }
+          
           res.render('travel/index', model);
         } else {
           res.redirect('/'); 
