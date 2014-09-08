@@ -1,7 +1,9 @@
 /* global $, Crime, Contentedit, Coveruploader */
 
 define([
-  'backbone'
+  'backbone',
+  'libs/coveruploader/coveruploader',
+  'libs/contentedit/contentedit'
 ], function (Backbone) {
   'use strict';
   
@@ -10,6 +12,22 @@ define([
     
     initialize: function () {
       this.setCoverHeight();
+      this.initContetnedit();
+    },
+    
+    initContetnedit: function () {
+      new Contentedit({
+        element: document.querySelector('.travel__title'),
+        url: '/api/travel/settitle'
+      });
+      new Contentedit({
+        element: document.querySelector('.travel__location'),
+        url: '/api/travel/setlocation'
+      });
+      new Contentedit({
+        element: document.querySelector('.travel__date'),
+        url: '/api/travel/setdate'
+      });
     },
     
     setCoverHeight: function () {

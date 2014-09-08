@@ -5,8 +5,8 @@
     <img src="{author.gravatar}?s=50" alt="" width="50" height="50" class="user__avatar">
     <p class="user__name user__name--travel"><a href="/profile/{author._id}">{author.name}</a></p>
     
-    <h2 class="travel__title">{title}</h2>
-    <h3 class="travel__location">{location}</h3>
+    <h2 class="travel__title" {#isAuthor}data-save="save" data-empty='{@pre type="content" key="emptyTitle"/}'{/isAuthor}>{title}</h2>
+    <h3 class="travel__location" {#isAuthor}data-save="save" data-empty='{@pre type="content" key="emptyLocation"/}'{/isAuthor}>{location}</h3>
     
     {#isAuthor}
       <form action="#" class="cover-uploader cover-uploader--travel" enctype="multipart/form-data">
@@ -21,7 +21,7 @@
   <div class="cover__footer container">
     <div class="row-xs">
       <div class="col-6 likes"></div>
-      <div class="col-6 travel__date">{date}</div>
+      <div class="col-6 travel__date" {#isAuthor}data-save="save" data-empty='{@pre type="content" key="emptyDate"/}'{/isAuthor}>{date}</div>
     </div>
   </div>
 
