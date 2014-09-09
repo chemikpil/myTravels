@@ -3,7 +3,7 @@
 {<body}
   {>"layouts/header" /}
   
-  <article>
+  <article class="travel" {#isAuthor}data-id="{_id}"{/isAuthor}>
     {>"travel/cover" /}
     
     {#sections}
