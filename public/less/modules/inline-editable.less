@@ -78,3 +78,15 @@
     animation-fill-mode: both;
   }
 }
+
+.travel {
+  & .inline-editable {
+    &.is-saving:after {
+      background: url('/img/loading-bubbles-white.svg') no-repeat center;
+    }
+    
+    &.is-saved:after {
+      color: rgba(71, 196, 74, .5);
+    }
+  }
+}
