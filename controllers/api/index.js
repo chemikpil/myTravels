@@ -93,5 +93,24 @@ module.exports = function (router) {
       });
     });
   });
+  
+  router.post('/travel/:id/setdate', function (req, res) {
+    var date = req.body.data;
+    var travel = req.params.id;
+    var user = res.locals.user;
+    
+    if (!canUpdateTravel(user, travel)) {
+      res.json(error);
+      return;
+    }
+    
+    travelLib.setDate(date, travel, function () {
+      res.format({
+        json: function () {
+          res.json(req.body);
+        }
+      });
+    });
+  });
 
 };
