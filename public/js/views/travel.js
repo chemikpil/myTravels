@@ -8,9 +8,11 @@ define([
   'use strict';
   
   var Travel = Backbone.View.extend({
-    el: 'body',
+    el: '.travel',
+    id: null,
     
     initialize: function () {
+      this.setId();
       this.setCoverHeight();
       this.initContetnedit();
     },
@@ -18,7 +20,7 @@ define([
     initContetnedit: function () {
       new Contentedit({
         element: document.querySelector('.travel__title'),
-        url: '/api/travel/settitle'
+        url: '/api/travel/' + this.id + '/settitle'
       });
       new Contentedit({
         element: document.querySelector('.travel__location'),
@@ -28,12 +30,17 @@ define([
         element: document.querySelector('.travel__date'),
         url: '/api/travel/setdate'
       });
+      this.delegateEvents();
     },
     
     setCoverHeight: function () {
       var height = window.document.documentElement.clientHeight;
       
       this.el.querySelector('.cover').style.paddingTop = height + 'px';
+    },
+    
+    setId: function () {
+      this.id = this.el.dataset.id;
     }
     
   });
