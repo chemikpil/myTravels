@@ -74,5 +74,24 @@ module.exports = function (router) {
       });
     });
   });
+    
+  router.post('/travel/:id/setlocation', function (req, res) {
+    var location = req.body.data;
+    var travel = req.params.id;
+    var user = res.locals.user;
+    
+    if (!canUpdateTravel(user, travel)) {
+      res.json(error);
+      return;
+    }
+    
+    travelLib.setLocation(location, travel, function () {
+      res.format({
+        json: function () {
+          res.json(req.body);
+        }
+      });
+    });
+  });
 
 };

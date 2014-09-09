@@ -24,11 +24,11 @@ define([
       });
       new Contentedit({
         element: document.querySelector('.travel__location'),
-        url: '/api/travel/setlocation'
+        url: '/api/travel/' + this.id + '/setlocation'
       });
       new Contentedit({
         element: document.querySelector('.travel__date'),
-        url: '/api/travel/setdate'
+        url: '/api/travel/' + this.id + '/setdate'
       });
       this.delegateEvents();
     },
