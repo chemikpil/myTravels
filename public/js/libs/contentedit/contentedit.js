@@ -3,6 +3,7 @@ var Contentedit = function (options) {
   
   var element;
   var url;
+  var changed = false;
   
   var classes = {
     init: 'inline-editable',
@@ -27,6 +28,7 @@ var Contentedit = function (options) {
       var content = xhr.responseText;
 
       if (!error && (xhr.status >= 200 && xhr.status < 300)){
+        changed = false;
         success(content);
       }
     };
@@ -66,9 +68,23 @@ var Contentedit = function (options) {
     });
   };
   
+  var hasChange = function () {
+     changed = true;
+  };
+  
   init();
   
   element.addEventListener('focusout', function (event) {
-    savingData();
+    if (changed) {
+      savingData();
+    }
   });
+  
+  element.addEventListener('click', function () {
+    if (changed) {
+      savingData(); 
+    }
+  });
+  
+  element.addEventListener('keyup', hasChange);
 };
