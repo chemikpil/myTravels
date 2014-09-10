@@ -15,6 +15,7 @@ define([
       this.setId();
       this.setCoverHeight();
       this.initContetnedit();
+      this.initCoverUploader();
     },
     
     initContetnedit: function () {
@@ -41,6 +42,14 @@ define([
     
     setId: function () {
       this.id = this.el.dataset.id;
+    },
+      
+    initCoverUploader: function () {
+      new Coveruploader({
+        element: document.querySelector('.cover-uploader'),
+        cover: document.querySelector('.cover'),
+        url: '/travel/' + this.id + '/uploadCover'
+      });
     }
     
   });

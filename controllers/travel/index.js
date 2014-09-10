@@ -3,6 +3,8 @@
 
 var TravelModel = require('../../models/travel');
 var userLib = require('../../lib/user')();
+var travelLib = require('../../lib/travel')();
+var coverUploader = require('../../lib/coverUploader');
 
 
 module.exports = function (router) {
@@ -50,6 +52,18 @@ module.exports = function (router) {
           res.redirect('/'); 
         }
       });
+  });
+  
+  router.post('/:id/uploadCover' , function (req, res) {
+    if (!res.locals.user) {
+      res.send('Bad Authentication data');
+    }
+    
+    coverUploader(req.files.coverphoto, 'travel_covers', function (err, file) {
+      travelLib.saveCoverPhoto('/img/travel_covers/' + file, req.params.id, function (result) {
+        res.send('success');
+      });
+    });
   });
 
 };
