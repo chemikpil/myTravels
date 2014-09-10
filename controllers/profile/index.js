@@ -3,6 +3,7 @@
 var ProfileModel = require('../../models/profile');
 var UserModel = require('../../models/user');
 var userLib = require('../../lib/user')();
+var coverUploader = require('../../lib/coverUploader');
 
 module.exports = function (router) {
 
@@ -34,36 +35,16 @@ module.exports = function (router) {
     }
   });
   
-  router.post('/uploadCover', function (req, res) {    
+  router.post('/uploadCover', function (req, res) {        
     if (!res.locals.user) {
       res.send('Bad Authentication data');
     }
     
-    var fs = require('fs');
-    var newName = +new Date() + '_' + req.files.coverphoto.name;
-    var cover_dir = __dirname + '/../../public/img/user_covers/';
-    var serverPath = cover_dir + newName;
-
-    if (!fs.existsSync(cover_dir)) {
-      fs.mkdirSync(cover_dir, '0744');
-    }
-    
-    fs.rename(
-      req.files.coverphoto.path,
-      serverPath,
-      function (err) {
-        if(err) {
-		  res.send({
-            error: 'Ah crap! Something bad happened'
-		  });
-          return;
-        }
-        
-        userLib.saveCoverPhoto('/img/user_covers/' + newName, res.locals.user._id, function (result) {
-          res.send('success');
-        });
-      }
-    );
+    coverUploader(req.files.coverphoto, 'user_covers', function (err, file) {
+      userLib.saveCoverPhoto('/img/user_covers/' + file, res.locals.user._id, function (result) {
+        res.send('success');
+      });
+    });
   });
 
 };
