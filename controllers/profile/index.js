@@ -23,7 +23,9 @@ module.exports = function (router) {
       model.title = model.profile.name || 'myTravels - profile';
       res.render('profile/index', model);
     } else {
-      UserModel.findOne(query, function (err, user) {
+      UserModel.findOne(query)
+      .populate('travels')
+      .exec(function (err, user) {
         if (user) {
           model.profile = JSON.parse(JSON.stringify(user));
           model.title = model.profile.name || 'myTravels - profile';
