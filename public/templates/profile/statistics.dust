@@ -1,11 +1,11 @@
 {#profile}
 <ul class="stats">
   <li class="stats__item">
-    {#trips}
-      {trips}
+    {#travel_counts}
+      {travel_counts}
     {:else}
       0
-    {/trips}
+    {/travel_counts}
     <span>{@pre type="content" key="trips"/}</span>
   </li>
   <li class="stats__item">
