@@ -15,26 +15,25 @@ module.exports = function (router) {
     var param = req.params.id;
     var query = {_id: param};
     var model = new ProfileModel();
-
-    if (res.locals.user && res.locals.user._id === param) {
-      model.profile = res.locals.user;
-      model.profile.logged = true;
-      model.class = 'class=is-editor';
-      model.title = model.profile.name || 'myTravels - profile';
-      res.render('profile/index', model);
-    } else {
-      UserModel.findOne(query)
-      .populate('travels')
-      .exec(function (err, user) {
-        if (user) {
-          model.profile = JSON.parse(JSON.stringify(user));
-          model.title = model.profile.name || 'myTravels - profile';
-          res.render('profile/index', model);
-        } else {
-          res.redirect('/'); 
+      
+    UserModel.findOne(query)
+    .populate('travels')
+    .exec(function (err, user) {
+      if (user) {
+        model.profile = JSON.parse(JSON.stringify(user));
+        model.title = model.profile.name || 'myTravels - profile';
+        model.profile.travel_counts = model.profile.travels.length || false;
+        
+        if (res.locals.user && res.locals.user._id === param) {
+          model.profile.logged = true;
+          model.class = 'class=is-editor';
         }
-      });
-    }
+        
+        res.render('profile/index', model);
+      } else {
+        res.redirect('/'); 
+      }
+    });
   });
   
   router.post('/uploadCover', function (req, res) {        
