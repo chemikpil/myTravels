@@ -10,11 +10,18 @@
     {/logged}
   
     <div class="timeline__trips">
-      {#trips}
-        {trips}
-      {:else}
-        {@pre type="content" key="noTrips"/}
-      {/trips}
+      <ul class="travels-timeline">
+        {#travels}
+          <li class="travels-timeline__item" style="background-image: url({cover_photo})">
+            <a href="/travel/{url}">
+              <h4 class="travels-timeline__item__title">{title}</h4>
+              <time class="travels-timeline__item__date">{date}</time>
+            </a>
+          </li>
+        {:else}
+          <li class="travels-timeline__item travels-timeline__item--empty">{@pre type="content" key="noTrips"/}</li>
+        {/travels}
+      </ul>
     </div>
   {/profile}
 </div>
