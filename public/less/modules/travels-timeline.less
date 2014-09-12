@@ -37,14 +37,34 @@
     height: 1px;
     position: absolute;
     top: 50px;
-    right: -45px;
+    right: -43px;
     
     background-color: #c5cacd;
+  }
+  
+  &:before {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    top: 45px;
+    right: -55px;
+    
+    border: 1px solid #c5cacd;
+    border-radius: 50%;
+    
+    background-color: #fff;
   }
   
   &:nth-child(even):after {
     right: auto;
     left: -45px;
+  }
+  
+  &:nth-child(even):before {
+    right: auto;
+    left: -56px;
   }
 }
 
