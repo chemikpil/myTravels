@@ -8,6 +8,10 @@ var coverUploader = require('../../lib/coverUploader');
 
 
 module.exports = function (router) {
+  
+  var isAuthor = function (user, travel_id) {
+    return (user && user.travels.indexOf(travel_id) > -1);
+  };
 
   router.get('/', function (req, res) {
     res.redirect('/');
@@ -70,4 +74,26 @@ module.exports = function (router) {
     });
   });
 
+  router.get('/:id/publish' , function (req, res) {
+    var id = req.params.id;
+    if (isAuthor(res.locals.user, id)) {
+      travelLib.publishTravel(id, function (result) {
+        res.redirect('/travel/' + id);
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+  
+  router.get('/:id/unpublish' , function (req, res) {
+    var id = req.params.id;
+    if (isAuthor(res.locals.user, id)) {
+      travelLib.unpublishTravel(id, function (result) {
+        res.redirect('/travel/' + id);
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+  
 };
