@@ -2,7 +2,7 @@
     {#draft}
       <a href="/travel/{_id}/publish" class="travel-mode">{@pre type="content" key="publish"/}</a>
     {:else}
-      <a href="/travel/{_id}/publish" class="travel-mode">{@pre type="content" key="unpublish"/}</a>
+      <a href="/travel/{_id}/unpublish" class="travel-mode">{@pre type="content" key="unpublish"/}</a>
     {/draft}
 {/isAuthor}
   
