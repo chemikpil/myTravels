@@ -47,6 +47,10 @@ module.exports = function (router) {
             model.isAuthor = true;
           }
           
+          if (model.mode === 'draft') {
+            model.draft = true; 
+          }
+          
           res.render('travel/index', model);
         } else {
           res.redirect('/'); 
