@@ -75,4 +75,17 @@ describe('User lib', function () {
     
   });
   
+  it('should set travel date', function (done) {
+    
+    travelLib.setDate('24-05-2014', travel._id, function (data) {
+      data.should.be.true;
+      
+      Travel.findOne({date: '24-05-2014'}, function (err, user) {
+        user.should.exist;
+        done();
+      });
+    });
+    
+  });
+  
 });
