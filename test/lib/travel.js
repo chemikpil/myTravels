@@ -54,8 +54,8 @@ describe('User lib', function () {
     travelLib.setTitle('First travel', travel._id, function (data) {
       data.should.be.true;
       
-      Travel.findOne({title: 'First travel'}, function (err, user) {
-        user.should.exist;
+      Travel.findOne({title: 'First travel'}, function (err, travel) {
+        travel.should.exist;
         done();
       });
     });
@@ -67,8 +67,8 @@ describe('User lib', function () {
     travelLib.setLocation('Poznan, Poland', travel._id, function (data) {
       data.should.be.true;
       
-      Travel.findOne({location: 'Poznan, Poland'}, function (err, user) {
-        user.should.exist;
+      Travel.findOne({location: 'Poznan, Poland'}, function (err, travel) {
+        travel.should.exist;
         done();
       });
     });
@@ -80,8 +80,8 @@ describe('User lib', function () {
     travelLib.setDate('24-05-2014', travel._id, function (data) {
       data.should.be.true;
       
-      Travel.findOne({date: '24-05-2014'}, function (err, user) {
-        user.should.exist;
+      Travel.findOne({date: '24-05-2014'}, function (err, travel) {
+        travel.should.exist;
         done();
       });
     });
@@ -93,8 +93,21 @@ describe('User lib', function () {
     travelLib.saveCoverPhoto('/file.png', travel._id, function (data) {
       data.should.be.true;
       
-      Travel.findOne({cover_photo: '/file.png'}, function (err, user) {
-        user.should.exist;
+      Travel.findOne({cover_photo: '/file.png'}, function (err, travel) {
+        travel.should.exist;
+        done();
+      });
+    });
+    
+  });
+  
+  it('should publish travel', function (done) {
+    
+    travelLib.publishTravel(travel._id, function (data) {
+      data.should.be.true;
+      
+      Travel.findOne({_id: travel._id}, function (err, travel) {
+        travel.mode.should.be.equal('active');
         done();
       });
     });
