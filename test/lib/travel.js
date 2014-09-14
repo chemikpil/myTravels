@@ -88,4 +88,17 @@ describe('User lib', function () {
     
   });
   
+  it('should set travel cover photo', function (done) {
+    
+    travelLib.saveCoverPhoto('/file.png', travel._id, function (data) {
+      data.should.be.true;
+      
+      Travel.findOne({cover_photo: '/file.png'}, function (err, user) {
+        user.should.exist;
+        done();
+      });
+    });
+    
+  });
+  
 });
