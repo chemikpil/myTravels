@@ -114,4 +114,17 @@ describe('User lib', function () {
     
   });
   
+  it('should unpublish travel', function (done) {
+    
+    travelLib.unpublishTravel(travel._id, function (data) {
+      data.should.be.true;
+      
+      Travel.findOne({_id: travel._id}, function (err, travel) {
+        travel.mode.should.be.equal('draft');
+        done();
+      });
+    });
+    
+  });
+  
 });
