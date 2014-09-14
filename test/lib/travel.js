@@ -62,4 +62,17 @@ describe('User lib', function () {
     
   });
   
+  it('should set travel location', function (done) {
+    
+    travelLib.setLocation('Poznan, Poland', travel._id, function (data) {
+      data.should.be.true;
+      
+      Travel.findOne({location: 'Poznan, Poland'}, function (err, user) {
+        user.should.exist;
+        done();
+      });
+    });
+    
+  });
+  
 });
