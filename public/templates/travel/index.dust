@@ -10,6 +10,12 @@
       {>"travel/section" /}
     {/sections}
     
+    {#isAuthor}
+      <div class="section-creator">
+        <button class="button button--small">Add new Section</button>
+      </div>
+    {/isAuthor}
+    
     <div class="container author-footer">
       <img src="{author.gravatar}?s=50" alt="" width="50" height="50" class="user__avatar"><br>
       <p class="user__name user__name--travel"><a href="/profile/{author._id}">{author.name}</a></p>
