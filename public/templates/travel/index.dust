@@ -6,7 +6,7 @@
   <article class="travel" {#isAuthor}data-id="{_id}"{/isAuthor}>
     {>"travel/cover" /}
     
-    <div class="travel-section">
+    <div class="travel-sections">
       {#sections}
         {>"travel/section" /}
       {/sections}
@@ -14,7 +14,7 @@
     
     {#isAuthor}
       <div class="section-creator">
-        <button class="button button--small">Add new Section</button>
+        <button class="button button--small add-section-trigger">Add new Section</button>
       </div>
     {/isAuthor}
     

@@ -11,7 +11,11 @@ define([
   var Travel = Backbone.View.extend({
     el: '.travel',
     id: null,
-
+    
+    events: {
+      'click .add-section-trigger': 'addSection'
+    },
+    
     initialize: function () {
       this.setId();
       this.setCoverHeight();
@@ -51,7 +55,24 @@ define([
         cover: document.querySelector('.cover'),
         url: '/travel/' + this.id + '/uploadCover'
       });
+    },
+    
+    addSection: function (event) {
+      var self = this;
+      require(['text!../templates/travel/section.dust'], function (tmp) {
+        dust.loadSource(dust.compile(tmp, 'section'));
+        
+        self.renderSection();
+      });
+    },
+    
+    renderSection: function () {
+      var self = this;
+      dust.render('section', {}, function (err, out) {
+        self.el.querySelector('.travel-sections').innerHTML += out;
+      });
     }
+    
   });
   
   return Travel;
