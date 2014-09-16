@@ -6,9 +6,11 @@
   <article class="travel" {#isAuthor}data-id="{_id}"{/isAuthor}>
     {>"travel/cover" /}
     
-    {#sections}
-      {>"travel/section" /}
-    {/sections}
+    <div class="travel-section">
+      {#sections}
+        {>"travel/section" /}
+      {/sections}
+    </div>
     
     {#isAuthor}
       <div class="section-creator">
