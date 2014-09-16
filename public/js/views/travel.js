@@ -3,14 +3,15 @@
 define([
   'backbone',
   'libs/coveruploader/coveruploader',
-  'libs/contentedit/contentedit'
+  'libs/contentedit/contentedit',
+  'dustjs'
 ], function (Backbone) {
   'use strict';
   
   var Travel = Backbone.View.extend({
     el: '.travel',
     id: null,
-    
+
     initialize: function () {
       this.setId();
       this.setCoverHeight();
@@ -51,7 +52,6 @@ define([
         url: '/travel/' + this.id + '/uploadCover'
       });
     }
-    
   });
   
   return Travel;

@@ -5,6 +5,7 @@ requirejs.config({
   paths: {
     'jquery': 'libs/backbone.native.min',
     'underscore': '../components/underscore/underscore',
+    'dustjs': '../components/dustjs-linkedin/dist/dust-full.min',
     'backbone': '../components/backbone/backbone'
   }
 });
