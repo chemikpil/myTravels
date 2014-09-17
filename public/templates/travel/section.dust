@@ -1,4 +1,4 @@
-<section class="travel-section container {#editor}travel-section--editor{/editor}">
+<section class="travel-section container">
   <h3 class="travel-section__title" {#editor}contenteditable{/editor}>{title}</h3>
   
   <p class="travel-section__content" {#editor}contenteditable{/editor}>{content}</p>
