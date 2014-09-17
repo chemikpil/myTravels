@@ -3,8 +3,7 @@
 define([
   'backbone',
   'libs/coveruploader/coveruploader',
-  'libs/contentedit/contentedit',
-  'dustjs'
+  'libs/contentedit/contentedit'
 ], function (Backbone) {
   'use strict';
   
@@ -59,23 +58,12 @@ define([
     
     addSection: function (event) {
       var self = this;
-      require(['text!../templates/travel/section.dust'], function (tmp) {
-        dust.loadSource(dust.compile(tmp, 'section'));
-        
-        self.renderSection();
-      });
-    },
-    
-    renderSection: function () {
-      var self = this;
-      var data = {
-        title: 'Set section title',
-        content: 'Write some words about section.',
-        editor: true
-      };
-      
-      dust.render('section', data, function (err, out) {
-        self.el.querySelector('.travel-sections').innerHTML += out;
+      require(['views/travelSection'], function (TravelSection) {
+        var travelSection = new TravelSection();
+        travelSection.render(function (section) {
+          console.log(section);
+          self.el.querySelector('.travel-sections').appendChild(section.el);
+        })
       });
     }
     
