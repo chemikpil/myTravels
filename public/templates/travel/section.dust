@@ -8,4 +8,9 @@
       <li class="travel-section__photo"><img src="{.}" alt=""></li>
     {/photos}
   </ul>
+  
+  {#editor}
+    <button class="button button--small save-section-trigger">Save section</button>
+    <button class="button button--small button--danger remove-section-trigger">Remove section</button>
+  {/editor}
 </section>
