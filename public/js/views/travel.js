@@ -68,7 +68,13 @@ define([
     
     renderSection: function () {
       var self = this;
-      dust.render('section', {}, function (err, out) {
+      var data = {
+        title: 'Set section title',
+        content: 'Write some words about section.',
+        editor: true
+      };
+      
+      dust.render('section', data, function (err, out) {
         self.el.querySelector('.travel-sections').innerHTML += out;
       });
     }
