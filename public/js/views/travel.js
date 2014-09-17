@@ -61,7 +61,6 @@ define([
       require(['views/travelSection'], function (TravelSection) {
         var travelSection = new TravelSection();
         travelSection.render(function (section) {
-          console.log(section);
           self.el.querySelector('.travel-sections').appendChild(section.el);
         })
       });
