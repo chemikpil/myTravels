@@ -3,7 +3,7 @@
   
   <p class="travel-section__content" {#editor}contenteditable{/editor}>{content}</p>
   
-  <ul class="travel-section__photos {#photos}{:else}travel-section__photos--empty{/photos}">
+  <ul class="travel-section__photos {#photos}{:else}travel-section__photos--empty{/photos}" {#editor}data-placeholder="Drag and drop photos here or click to upload. Max 3"{/editor}>
     {#photos}
       <li class="travel-section__photo"><img src="{.}" alt=""></li>
     {:else}

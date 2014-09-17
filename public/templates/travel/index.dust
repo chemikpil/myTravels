@@ -14,7 +14,7 @@
     
     {#isAuthor}
       <div class="section-creator">
-        <button class="button button--small add-section-trigger">Add new Section</button>
+        <button class="button button--small add-section-trigger">{@pre type="content" key="addSection"/}</button>
       </div>
     {/isAuthor}
     
