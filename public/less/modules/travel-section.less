@@ -46,6 +46,48 @@
   list-style: none;
 }
 
+.travel-section__photos > input {
+  display: none; 
+}
+
+.travel-section__photos--empty {
+  position: relative;
+  height: 200px;
+  
+  padding: 3px;
+  
+  border: 2px dashed #eee;
+  
+  background-color: #f2f2f2;
+  background-clip: content-box;
+  
+  &:before {
+    content: "Drag and drop photos here or click to upload. Max 3";
+    
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    
+    font-size: 1.3rem;
+    line-height: 2rem;
+    text-align: center;
+  }
+  
+  & > input {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
 @media screen and (min-width: 600px) {
   .travel-section__photos {
     display: flex;
@@ -61,5 +103,5 @@
 }
 
 .travel-section .button {
-  margin: 0 10px; 
+  margin: 20px 10px 0; 
 }

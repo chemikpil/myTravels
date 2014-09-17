@@ -1,11 +1,13 @@
-<section class="travel-section container">
+<section class="travel-section container {#editor}travel-section--editor{/editor}">
   <h3 class="travel-section__title" {#editor}contenteditable{/editor}>{title}</h3>
   
   <p class="travel-section__content" {#editor}contenteditable{/editor}>{content}</p>
   
-  <ul class="travel-section__photos">
+  <ul class="travel-section__photos {#photos}{:else}travel-section__photos--empty{/photos}">
     {#photos}
       <li class="travel-section__photo"><img src="{.}" alt=""></li>
+    {:else}
+      <input type="file">
     {/photos}
   </ul>
   
