@@ -37,7 +37,10 @@ define([
     },
     
     save: function () {
-      // save data
+      this.content.title = this.el.querySelector('.travel-section__title').textContent;
+      this.content.content = this.el.querySelector('.travel-section__content').textContent;
+      
+      console.log(this.content);
     },
     
     close: function () {
