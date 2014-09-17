@@ -20,7 +20,8 @@ define([
     content: {},
     
     events: {
-      'click .save-section-trigger': 'save'
+      'click .save-section-trigger': 'save',
+      'click .remove-section-trigger': 'close'
     },
     
     render: function (callback) {
@@ -37,6 +38,13 @@ define([
     
     save: function () {
       // save data
+    },
+    
+    close: function () {
+      this.unbind();
+      this.remove();
+      delete this.el;
+      delete this.$el;
     }
   });
   
