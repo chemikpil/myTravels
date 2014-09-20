@@ -49,6 +49,7 @@ module.exports = function (router) {
           
           if (res.locals.user && travel.author._id+ '' === res.locals.user._id) {
             model.isAuthor = true;
+            model.class = 'class=is-editor';
           }
           
           if (model.mode === 'draft') {
@@ -78,7 +79,20 @@ module.exports = function (router) {
     var id = req.params.id;
     if (isAuthor(res.locals.user, id)) {
       travelLib.createSection(id, function (id) {
-        res.send(id);
+        res.send({id: id});
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+  
+  router.get('/:id/removeSection/:sid', function (req, res) {
+    var id = req.params.id;
+    var sid = req.params.sid;
+    
+    if (isAuthor(res.locals.user, id)) {
+      travelLib.removeSection(id, sid, function (id) {
+        res.send('success');
       });
     } else {
       res.redirect('/');

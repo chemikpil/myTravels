@@ -1,4 +1,4 @@
-<section class="travel-section container">
+<section class="travel-section container" {#isAuthor}data-id={_id}{/isAuthor}>
   <h3 class="travel-section__title" {#isAuthor}contenteditable{/isAuthor}>{sections.title}</h3>
   
   <p class="travel-section__content" {#isAuthor}contenteditable{/isAuthor}>{sections.content}</p>

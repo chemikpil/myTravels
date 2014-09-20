@@ -40,6 +40,7 @@ define([
     
     setExistingSection: function (el) {
       this.setElement(el);
+      this.content._id = el.dataset.id;
     },
     
     createSection: function () {
@@ -47,8 +48,9 @@ define([
       $.ajax({
         method: 'GET',
         url: '/travel/' + this.parent.id + '/createSection',
-        success: function (id) {
-          self.content.id = id;
+        success: function (data) {
+          var data = JSON.parse(data);
+          self.content._id = data.id;
         }
       });
     },
@@ -126,10 +128,17 @@ define([
     },
     
     close: function () {
-      this.unbind();
-      this.remove();
-      delete this.el;
-      delete this.$el;
+      var self = this;
+      $.ajax({
+        method: 'GET',
+        url: '/travel/' + self.parent.id + '/removeSection/' + self.content._id,
+        success: function (id) {
+          self.unbind();
+          self.remove();
+          delete self.el;
+          delete self.$el;
+        }
+      });
     }
   });
   
