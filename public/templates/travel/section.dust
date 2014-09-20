@@ -7,7 +7,7 @@
     {#photos}
       <li class="travel-section__photo"><img src="{.}" alt=""></li>
     {:else}
-      <input type="file">
+      <input type="file" multiple>
     {/photos}
   </ul>
   

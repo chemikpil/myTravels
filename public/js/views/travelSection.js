@@ -23,12 +23,22 @@ define([
       'click .save-section-trigger': 'setData',
       'click .remove-section-trigger': 'close',
       'dragenter .travel-section__photos': 'handleDragEnter',
-      'dragleave .travel-section__photos': 'handleDragLeave'
+      'dragleave .travel-section__photos': 'handleDragLeave',
+      'drop .travel-section__photos': 'handleDragLeave',
+      'change .travel-section__photos input': 'handleFileSelect',
     },
     
     initialize: function (options) {
+      var self = this;
       this.parent = options.parent;
-      this.content.id = options.id;
+      
+      $.ajax({
+        method: 'GET',
+        url: '/travel/' + this.parent.id + '/createSection',
+        success: function (id) {
+          self.content.id = id;
+        }
+      })
     },
     
     render: function (callback) {
@@ -49,6 +59,44 @@ define([
     
     handleDragLeave: function (event) {
       this.el.querySelector('.travel-section__photos').classList.remove('is-active');
+    },
+    
+    handleFileSelect: function (event) {
+      var container = this.el.querySelector('.travel-section__photos');
+      var selectedFiles = event.target.files;
+      
+      if (selectedFiles.length > 3) {
+        container.classList.add('is-error');
+        return;
+      }
+      
+      for (var i = 0, l = selectedFiles.length; i <l; i ++ ) {
+        this.renderFile(selectedFiles[i], container);
+      }
+      
+      container.classList.remove('travel-section__photos--empty');
+    },
+    
+    renderFile: function (file, container) {
+      var reader = new FileReader();
+      var li = document.createElement('li');
+      var img = document.createElement('img');
+    
+      reader.onload = (function () {
+        return function (event) {
+          img.src = event.target.result;
+          li.appendChild(img);
+          li.classList.add('travel-section__photo');
+          
+          container.appendChild(li);
+        };
+      })(file);
+
+      reader.readAsDataURL(file);
+    },
+    
+    appendList: function (fragment) {
+      
     },
     
     setData: function () {
