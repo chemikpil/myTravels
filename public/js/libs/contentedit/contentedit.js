@@ -82,6 +82,7 @@ var Contentedit = function (options) {
   
   element.addEventListener('click', function () {
     if (changed) {
+      element.blur();
       savingData(); 
     }
   });
