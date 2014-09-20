@@ -10,7 +10,7 @@ define([
   var data = {
     title: 'Set section title',
     content: 'Write some words about section.',
-    editor: true
+    isAuthor: true
   };
   
   var TravelSection = Backbone.View.extend({
@@ -29,16 +29,28 @@ define([
     },
     
     initialize: function (options) {
-      var self = this;
       this.parent = options.parent;
       
+      if (!options.el) {
+        this.createSection();
+      } else {
+        this.setExistingSection(options.el); 
+      }
+    },
+    
+    setExistingSection: function (el) {
+      this.setElement(el);
+    },
+    
+    createSection: function () {
+      var self = this;
       $.ajax({
         method: 'GET',
         url: '/travel/' + this.parent.id + '/createSection',
         success: function (id) {
           self.content.id = id;
         }
-      })
+      });
     },
     
     render: function (callback) {

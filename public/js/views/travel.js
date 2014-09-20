@@ -10,7 +10,6 @@ define([
   var Travel = Backbone.View.extend({
     el: '.travel',
     id: null,
-    sections: 0,
     
     events: {
       'click .add-section-trigger': 'addSection'
@@ -21,8 +20,7 @@ define([
       this.setCoverHeight();
       this.initContetnedit();
       this.initCoverUploader();
-      
-      this.trigger('save');
+      this.initSections();
     },
     
     initContetnedit: function () {
@@ -39,6 +37,20 @@ define([
         url: '/api/travel/' + this.id + '/setdate'
       });
       this.delegateEvents();
+    },
+    
+    initSections: function () {
+      var self = this;
+      require(['views/travelSection'], function (TravelSection) {
+        var sections = self.el.querySelectorAll('.travel-section');
+        
+        for (var i = 0, l = sections.length; i < l; i ++){
+          new TravelSection({
+            el: sections[i],
+            parent: self
+          });
+        }
+      });
     },
     
     setCoverHeight: function () {
@@ -62,7 +74,6 @@ define([
     addSection: function (event) {
       var self = this;
       require(['views/travelSection'], function (TravelSection) {
-        self.sections ++;
         var travelSection = new TravelSection({
           id: self.sections,
           parent: self

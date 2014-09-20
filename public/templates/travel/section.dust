@@ -1,9 +1,9 @@
 <section class="travel-section container">
-  <h3 class="travel-section__title" {#editor}contenteditable{/editor}>{title}</h3>
+  <h3 class="travel-section__title" {#isAuthor}contenteditable{/isAuthor}>{sections.title}</h3>
   
-  <p class="travel-section__content" {#editor}contenteditable{/editor}>{content}</p>
+  <p class="travel-section__content" {#isAuthor}contenteditable{/isAuthor}>{sections.content}</p>
   
-  <ul class="travel-section__photos {#photos}{:else}travel-section__photos--empty{/photos}" {#editor}data-placeholder="Drag and drop photos here or click to upload. Max 3"{/editor}>
+  <ul class="travel-section__photos {#photos}{:else}travel-section__photos--empty{/photos}" {#isAuthor}data-placeholder="Drag and drop photos here or click to upload. Max 3"{/isAuthor}>
     {#photos}
       <li class="travel-section__photo"><img src="{.}" alt=""></li>
     {:else}
@@ -11,8 +11,8 @@
     {/photos}
   </ul>
   
-  {#editor}
+  {#isAuthor}
     <button class="button button--small save-section-trigger">Save section</button>
     <button class="button button--small button--danger remove-section-trigger">Remove section</button>
-  {/editor}
+  {/isAuthor}
 </section>
