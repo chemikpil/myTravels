@@ -17,9 +17,11 @@ define(['backbone'], function (Backbone) {
     },
     
     travel: function () {
-      require(['views/travel'], function(Travel) {
-        new Travel();
-      });
+      if (document.body.classList.contains('is-editor')) {
+        require(['views/travel'], function(Travel) {
+          new Travel();
+        });
+      }
     },
     
     profile: function () {
