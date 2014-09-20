@@ -1,4 +1,4 @@
-/* global $, Crime, Contentedit, Coveruploader */
+/* global $, Crime, Contentedit, Coveruploader, dust */
 
 define([
   'backbone',
@@ -20,8 +20,15 @@ define([
     content: {},
     
     events: {
-      'click .save-section-trigger': 'save',
-      'click .remove-section-trigger': 'close'
+      'click .save-section-trigger': 'setData',
+      'click .remove-section-trigger': 'close',
+      'dragenter .travel-section__photos': 'handleDragEnter',
+      'dragleave .travel-section__photos': 'handleDragLeave'
+    },
+    
+    initialize: function (options) {
+      this.parent = options.parent;
+      this.content.id = options.id;
     },
     
     render: function (callback) {
@@ -36,9 +43,26 @@ define([
       }); 
     },
     
+    handleDragEnter: function (event) {
+      this.el.querySelector('.travel-section__photos').classList.add('is-active');
+    },
+    
+    handleDragLeave: function (event) {
+      this.el.querySelector('.travel-section__photos').classList.remove('is-active');
+    },
+    
+    setData: function () {
+      var title = this.el.querySelector('.travel-section__title').textContent;
+      var content = this.el.querySelector('.travel-section__content').textContent;
+      
+      this.content.title = (title === data.title) ? '' : title;
+      this.content.content = (content === data.content) ? '' : content;
+      
+      this.save();
+    },
+    
     save: function () {
-      this.content.title = this.el.querySelector('.travel-section__title').textContent;
-      this.content.content = this.el.querySelector('.travel-section__content').textContent;
+      
     },
     
     close: function () {

@@ -1,4 +1,4 @@
-/* global $, Crime, Contentedit, Coveruploader */
+/* global $, Crime, Contentedit, Coveruploader, require */
 
 define([
   'backbone',
@@ -10,6 +10,7 @@ define([
   var Travel = Backbone.View.extend({
     el: '.travel',
     id: null,
+    sections: 0,
     
     events: {
       'click .add-section-trigger': 'addSection'
@@ -20,6 +21,8 @@ define([
       this.setCoverHeight();
       this.initContetnedit();
       this.initCoverUploader();
+      
+      this.trigger('save');
     },
     
     initContetnedit: function () {
@@ -59,10 +62,14 @@ define([
     addSection: function (event) {
       var self = this;
       require(['views/travelSection'], function (TravelSection) {
-        var travelSection = new TravelSection();
+        self.sections ++;
+        var travelSection = new TravelSection({
+          id: self.sections,
+          parent: self
+        });
         travelSection.render(function (section) {
           self.el.querySelector('.travel-sections').appendChild(section.el);
-        })
+        });
       });
     }
     
