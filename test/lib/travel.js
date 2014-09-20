@@ -6,6 +6,7 @@ require('../../models/user')();
 
 var chai = require('chai');
 var should = chai.should();
+var expect = chai.expect;
 var mongoose = require('mongoose');
 var mockgoose = require('mockgoose');
 var userLib = require('../../lib/user')();
@@ -95,6 +96,19 @@ describe('User lib', function () {
       
       Travel.findOne({cover_photo: '/file.png'}, function (err, travel) {
         travel.should.exist;
+        done();
+      });
+    });
+    
+  });
+  
+  it('should create new section', function (done) {
+    
+    travelLib.createSection(travel._id, function (data) {
+      data.should.be.defined;
+      
+      Travel.findOne({_id: travel._id}, function (err, travel) {
+        expect(travel.sections).to.have.length(1);
         done();
       });
     });
