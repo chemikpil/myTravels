@@ -73,6 +73,17 @@ module.exports = function (router) {
       });
     });
   });
+  
+  router.get('/:id/createSection', function (req, res) {
+    var id = req.params.id;
+    if (isAuthor(res.locals.user, id)) {
+      travelLib.createSection(id, function (id) {
+        res.send(id);
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
 
   router.get('/:id/publish' , function (req, res) {
     var id = req.params.id;
