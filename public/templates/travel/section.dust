@@ -1,18 +1,20 @@
-<section class="travel-section container" {#isAuthor}data-id={_id}{/isAuthor}>
-  <h3 class="travel-section__title" {#isAuthor}contenteditable{/isAuthor}>{sections.title}</h3>
-  
-  <p class="travel-section__content" {#isAuthor}contenteditable{/isAuthor}>{sections.content}</p>
-  
-  <ul class="travel-section__photos {#photos}{:else}travel-section__photos--empty{/photos}" {#isAuthor}data-placeholder="Drag and drop photos here or click to upload. Max 3"{/isAuthor}>
-    {#photos}
-      <li class="travel-section__photo"><img src="{.}" alt=""></li>
-    {:else}
-      <input type="file" multiple>
-    {/photos}
-  </ul>
-  
-  {#isAuthor}
-    <button class="button button--small save-section-trigger">Save section</button>
-    <button class="button button--small button--danger remove-section-trigger">Remove section</button>
-  {/isAuthor}
-</section>
+{#sections}
+   <section class="travel-section container" {#isAuthor}data-id={_id}{/isAuthor}>
+    <h3 class="travel-section__title" {#isAuthor}contenteditable{/isAuthor}>{section_title}</h3>
+
+    <p class="travel-section__content" {#isAuthor}contenteditable{/isAuthor}>{section_content}</p>
+
+    <ul class="travel-section__photos {#photos}{:else}travel-section__photos--empty{/photos}" {#isAuthor}data-placeholder="Drag and drop photos here or click to upload. Max 3"{/isAuthor}>
+      {#photos}
+        <li class="travel-section__photo"><img src="{.}" alt=""></li>
+      {:else}
+        <input type="file" multiple>
+      {/photos}
+    </ul>
+
+    {#isAuthor}
+      <button class="button button--small save-section-trigger">Save section</button>
+      <button class="button button--small button--danger remove-section-trigger">Remove section</button>
+    {/isAuthor}
+  </section>
+{/sections}

@@ -7,9 +7,7 @@
     {>"travel/cover" /}
     
     <div class="travel-sections">
-      {#sections}
-        {>"travel/section" /}
-      {/sections}
+      {>"travel/section" /}
     </div>
     
     {#isAuthor}
