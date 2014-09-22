@@ -11,16 +11,11 @@ define([
     el: '.travel',
     id: null,
     
-    events: {
-      'click .add-section-trigger': 'addSection'
-    },
-    
     initialize: function () {
       this.setId();
       this.setCoverHeight();
       this.initContetnedit();
       this.initCoverUploader();
-      this.initSections();
     },
     
     initContetnedit: function () {
@@ -39,20 +34,6 @@ define([
       this.delegateEvents();
     },
     
-    initSections: function () {
-      var self = this;
-      require(['views/travelSection'], function (TravelSection) {
-        var sections = self.el.querySelectorAll('.travel-section');
-        
-        for (var i = 0, l = sections.length; i < l; i ++){
-          new TravelSection({
-            el: sections[i],
-            parent: self
-          });
-        }
-      });
-    },
-    
     setCoverHeight: function () {
       var height = window.document.documentElement.clientHeight;
       
@@ -69,21 +50,7 @@ define([
         cover: document.querySelector('.cover'),
         url: '/travel/' + this.id + '/uploadCover'
       });
-    },
-    
-    addSection: function (event) {
-      var self = this;
-      require(['views/travelSection'], function (TravelSection) {
-        var travelSection = new TravelSection({
-          id: self.sections,
-          parent: self
-        });
-        travelSection.render(function (section) {
-          self.el.querySelector('.travel-sections').appendChild(section.el);
-        });
-      });
     }
-    
   });
   
   return Travel;

@@ -11,8 +11,8 @@ var TravelModel = function () {
     location: String,
     date: String,
     sections: [{
-      title: String,
-      content: String,
+      section_title: String,
+      section_content: String,
       photos: [String]
     }],
     author: {type: ObjectId, ref: 'User'},

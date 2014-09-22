@@ -102,36 +102,6 @@ describe('User lib', function () {
     
   });
   
-  it('should create new section', function (done) {
-    
-    travelLib.createSection(travel._id, function (data) {
-      data.should.be.defined;
-      
-      Travel.findOne({_id: travel._id}, function (err, travel) {
-        expect(travel.sections).to.have.length(1);
-        done();
-      });
-    });
-    
-  });
-  
-  it('should remove section', function (done) {
-    
-    travelLib.createSection(travel._id, function (data) {
-      var sid = data;
-      
-      travelLib.removeSection(travel._id, sid, function (data) {
-        data.should.be.true;
-        
-        Travel.findOne({_id: travel._id}, function (err, travel) {
-          expect(travel.sections).to.have.length(1);
-          done();
-        });
-      });
-    });
-    
-  });
-  
   it('should publish travel', function (done) {
     
     travelLib.publishTravel(travel._id, function (data) {
