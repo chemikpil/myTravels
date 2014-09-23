@@ -18,6 +18,10 @@ define([
       this.initCoverUploader();
     },
     
+    events: {
+      'click .remove-travel-trigger': 'removeTravel'
+    },
+    
     initContetnedit: function () {
       new Contentedit({
         element: document.querySelector('.travel__title'),
@@ -50,6 +54,14 @@ define([
         cover: document.querySelector('.cover'),
         url: '/travel/' + this.id + '/uploadCover'
       });
+    },
+    
+    removeTravel: function () {
+      var remove = window.confirm('Are you sure?');
+      
+      if (remove) {
+        window.location('/travel/' + this.id + '/remove');
+      }
     }
   });
   
