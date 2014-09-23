@@ -75,30 +75,6 @@ module.exports = function (router) {
     });
   });
   
-  router.get('/:id/createSection', function (req, res) {
-    var id = req.params.id;
-    if (isAuthor(res.locals.user, id)) {
-      travelLib.createSection(id, function (id) {
-        res.send({id: id});
-      });
-    } else {
-      res.redirect('/');
-    }
-  });
-  
-  router.get('/:id/removeSection/:sid', function (req, res) {
-    var id = req.params.id;
-    var sid = req.params.sid;
-    
-    if (isAuthor(res.locals.user, id)) {
-      travelLib.removeSection(id, sid, function (id) {
-        res.send('success');
-      });
-    } else {
-      res.redirect('/');
-    }
-  });
-
   router.get('/:id/publish' , function (req, res) {
     var id = req.params.id;
     if (isAuthor(res.locals.user, id)) {
