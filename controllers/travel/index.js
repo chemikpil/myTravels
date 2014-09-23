@@ -75,6 +75,17 @@ module.exports = function (router) {
     });
   });
   
+  router.get('/:id/remove', function (req, res) {
+    var id = req.params.id;
+    if (isAuthor(res.locals.user, id)) {
+      travelLib.remove(id, function () {
+        res.redirect('/profile');
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+  
   router.get('/:id/publish' , function (req, res) {
     var id = req.params.id;
     if (isAuthor(res.locals.user, id)) {

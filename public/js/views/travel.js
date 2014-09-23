@@ -60,7 +60,7 @@ define([
       var remove = window.confirm('Are you sure?');
       
       if (remove) {
-        window.location('/travel/' + this.id + '/remove');
+        window.location = '/travel/' + this.id + '/remove';
       }
     }
   });
