@@ -128,4 +128,15 @@ describe('User lib', function () {
     
   });
   
+  it('should remove travel', function (done) {
+    
+    travelLib.remove(travel._id, function () {
+      Travel.findOne({_id: travel._id}, function (err, travel) {
+        expect(travel).to.be.null;
+        done();
+      });
+    });
+    
+  });
+  
 });
