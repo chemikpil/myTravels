@@ -11,8 +11,9 @@
     </div>
     
     {#isAuthor}
-      <div class="section-creator">
+      <div class="travel-actions">
         <button class="button button--small add-section-trigger">{@pre type="content" key="addSection"/}</button>
+        <button class="button button--small button--danger remove-travel-trigger">{@pre type="content" key="removeTravel"/}</button>
       </div>
     {/isAuthor}
     
