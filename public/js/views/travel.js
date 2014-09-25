@@ -10,26 +10,25 @@ define([
   var Travel = Backbone.View.extend({
     el: '.travel',
     id: null,
+    autocomplete: null,
     
     initialize: function () {
       this.setId();
       this.setCoverHeight();
       this.initContetnedit();
       this.initCoverUploader();
+      this.initLocationAutocomplet();
     },
     
     events: {
-      'click .remove-travel-trigger': 'removeTravel'
+      'click .remove-travel-trigger': 'removeTravel',
+      'change .travel__location': 'setLocation'
     },
     
     initContetnedit: function () {
       new Contentedit({
         element: document.querySelector('.travel__title'),
         url: '/api/travel/' + this.id + '/settitle'
-      });
-      new Contentedit({
-        element: document.querySelector('.travel__location'),
-        url: '/api/travel/' + this.id + '/setlocation'
       });
       new Contentedit({
         element: document.querySelector('.travel__date'),
@@ -54,6 +53,16 @@ define([
         cover: document.querySelector('.cover'),
         url: '/travel/' + this.id + '/uploadCover'
       });
+    },
+    
+    initLocationAutocomplet: function () {
+      var input = this.el.querySelector('.travel__location');
+      
+      this.autocomplete = new google.maps.places.Autocomplete(input);
+    },
+    
+    setLocation: function (event) {
+      var location = event.target.value;
     },
     
     removeTravel: function () {
