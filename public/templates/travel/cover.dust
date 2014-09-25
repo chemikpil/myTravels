@@ -15,9 +15,10 @@
     
     <h2 class="travel__title" {#isAuthor}data-save="save" data-empty='{@pre type="content" key="emptyTitle"/}'{/isAuthor}>{title}</h2>
     {#isAuthor} 
-      <input class="travel__location inline-editable" type="text" placeholder='{@pre type="content" key="emptyLocation"/}' value="{location}">
+      <input class="travel__location inline-editable" type="text" placeholder='{@pre type="content" key="emptyLocation"/}' value="{location.name}">
+    {location[0].name}
     {:else}
-      <h3 class="travel__location">{location}</h3>
+      <h3 class="travel__location">{location.name}</h3>
     {/isAuthor}
     
     {#isAuthor}

@@ -57,12 +57,29 @@ define([
     
     initLocationAutocomplet: function () {
       var input = this.el.querySelector('.travel__location');
+      var self = this;
       
       this.autocomplete = new google.maps.places.Autocomplete(input, {types: ['(cities)']});
+      
+      google.maps.event.addListener(this.autocomplete, 'place_changed', function() {
+        self.setLocation();
+      });
     },
     
     setLocation: function (event) {
-      var location = event.target.value;
+      var location = this.autocomplete.getPlace();
+      
+      var data = {
+        name: location.formatted_address,
+        geometry: location.geometry.location
+      };
+      
+      $.ajax({
+        type: 'POST', 
+        url: '/api/travel/' + this.id + '/setlocation',
+        data: data,
+        dataType: 'json'
+      });
     },
     
     removeTravel: function () {

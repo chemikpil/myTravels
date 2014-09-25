@@ -8,7 +8,7 @@ var TravelModel = function () {
   var travelSchema = mongoose.Schema({
     title: String,
     cover_photo: String,
-    location: String,
+    location: {},
     date: String,
     sections: [{
       section_title: String,

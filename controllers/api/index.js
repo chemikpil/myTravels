@@ -76,7 +76,7 @@ module.exports = function (router) {
   });
     
   router.post('/travel/:id/setlocation', function (req, res) {
-    var location = req.body.data;
+    var location = req.body;
     var travel = req.params.id;
     var user = res.locals.user;
     
