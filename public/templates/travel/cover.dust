@@ -14,7 +14,11 @@
     <p class="user__name user__name--travel"><a href="/profile/{author._id}">{author.name}</a></p>
     
     <h2 class="travel__title" {#isAuthor}data-save="save" data-empty='{@pre type="content" key="emptyTitle"/}'{/isAuthor}>{title}</h2>
-    <h3 class="travel__location" {#isAuthor}data-save="save" data-empty='{@pre type="content" key="emptyLocation"/}'{/isAuthor}>{location}</h3>
+    {#isAuthor} 
+      <input class="travel__location inline-editable" type="text" placeholder='{@pre type="content" key="emptyLocation"/}' value="{location}">
+    {:else}
+      <h3 class="travel__location">{location}</h3>
+    {/isAuthor}
     
     {#isAuthor}
       <form action="#" class="cover-uploader cover-uploader--travel" enctype="multipart/form-data">
