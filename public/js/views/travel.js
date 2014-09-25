@@ -58,7 +58,7 @@ define([
     initLocationAutocomplet: function () {
       var input = this.el.querySelector('.travel__location');
       
-      this.autocomplete = new google.maps.places.Autocomplete(input);
+      this.autocomplete = new google.maps.places.Autocomplete(input, {types: ['(cities)']});
     },
     
     setLocation: function (event) {
