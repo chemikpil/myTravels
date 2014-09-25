@@ -70,7 +70,7 @@ describe('User lib', function () {
       
       Travel.findOne({_id: travel._id}, function (err, travel) {
         travel.should.exist;
-        travel.location.name.should.be.equal('Poznan, Poland')
+        travel.location.name.should.be.equal('Poznan, Poland');
         done();
       });
     });
