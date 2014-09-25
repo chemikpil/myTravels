@@ -65,11 +65,12 @@ describe('User lib', function () {
   
   it('should set travel location', function (done) {
     
-    travelLib.setLocation('Poznan, Poland', travel._id, function (data) {
+    travelLib.setLocation({name: 'Poznan, Poland'}, travel._id, function (data) {
       data.should.be.true;
       
-      Travel.findOne({location: 'Poznan, Poland'}, function (err, travel) {
+      Travel.findOne({_id: travel._id}, function (err, travel) {
         travel.should.exist;
+        travel.location.name.should.be.equal('Poznan, Poland')
         done();
       });
     });
