@@ -16,7 +16,7 @@
             <li class="travels-timeline__item" style="background-image: url({cover_photo})">
               <a href="/travel/{url}">
                 <h4 class="travels-timeline__item__title">{title}</h4>
-                <time class="travels-timeline__item__date">{date}</time>
+                <time class="travels-timeline__item__date">{location.name}</time>
               </a>
             </li>
           {/travels}
