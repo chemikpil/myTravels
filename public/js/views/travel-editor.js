@@ -1,4 +1,4 @@
-/* global $, Crime, Contentedit, Coveruploader, require */
+/* global $, Crime, Contentedit, Coveruploader, require, google */
 
 define([
   'backbone',
@@ -7,14 +7,13 @@ define([
 ], function (Backbone) {
   'use strict';
   
-  var Travel = Backbone.View.extend({
+  var TravelEditor = Backbone.View.extend({
     el: '.travel',
     id: null,
     autocomplete: null,
     
     initialize: function () {
       this.setId();
-      this.setCoverHeight();
       this.initContetnedit();
       this.initCoverUploader();
       this.initLocationAutocomplet();
@@ -35,12 +34,6 @@ define([
         url: '/api/travel/' + this.id + '/setdate'
       });
       this.delegateEvents();
-    },
-    
-    setCoverHeight: function () {
-      var height = window.document.documentElement.clientHeight;
-      
-      this.el.querySelector('.cover').style.paddingTop = height + 'px';
     },
     
     setId: function () {
@@ -91,5 +84,5 @@ define([
     }
   });
   
-  return Travel;
+  return TravelEditor;
 });
