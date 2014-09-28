@@ -1,4 +1,4 @@
-/* global $, Crime, Contentedit, Coveruploader, require, google */
+/* global $, Contentedit, Coveruploader, google */
 
 define([
   'backbone',
@@ -59,7 +59,7 @@ define([
       });
     },
     
-    setLocation: function (event) {
+    setLocation: function () {
       var location = this.autocomplete.getPlace();
       
       var data = {

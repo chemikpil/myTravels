@@ -1,4 +1,4 @@
-/* global $, Contentedit, Coveruploader, require, google */
+/* global $, require */
 
 define([
   'backbone'
