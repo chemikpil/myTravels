@@ -18,6 +18,9 @@
     {#isAuthor}
       <div class="travel-actions">
         <div class="travel-actions__wrapper container">
+          <button class="travel-actions__button is-active">Markdown</button>
+          <button class="travel-actions__button">Preview</button>
+          
           <button class="button button--small button--danger remove-travel-trigger">{@pre type="content" key="removeTravel"/}</button>
         </div>
       </div>

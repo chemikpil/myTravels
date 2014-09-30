@@ -78,16 +78,38 @@
   background-color: rgba(0,0,0,.7);
   
   text-align: center;
+}
+
+.travel-actions__wrapper {
+  height: 100%;
+  position: relative;
+}
+
+.remove-travel-trigger {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -15px;
+}
+
+.travel-actions__button {
+  padding: 0 20px;
   
-  .travel-actions__wrapper {
-    height: 100%;
-    position: relative;
+  border: 0;
+  
+  background: none;
+  
+  color: #fff;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  line-height: 6rem;
+  
+  &:hover {
+    background-color: #000;
   }
   
-  .remove-travel-trigger {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    margin-top: -15px;
+  &.is-active {
+    background-color: #fbda38;
+    color: #000;
   }
 }
