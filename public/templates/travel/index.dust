@@ -10,17 +10,18 @@
       {>"travel/section" /}
     </div>
     
-    {#isAuthor}
-      <div class="travel-actions">
-        <button class="button button--small add-section-trigger">{@pre type="content" key="addSection"/}</button>
-        <button class="button button--small button--danger remove-travel-trigger">{@pre type="content" key="removeTravel"/}</button>
-      </div>
-    {/isAuthor}
-    
     <div class="container author-footer">
       <img src="{author.gravatar}?s=50" alt="" width="50" height="50" class="user__avatar"><br>
       <p class="user__name user__name--travel"><a href="/profile/{author._id}">{author.name}</a></p>
     </div>
+    
+    {#isAuthor}
+      <div class="travel-actions">
+        <div class="travel-actions__wrapper container">
+          <button class="button button--small button--danger remove-travel-trigger">{@pre type="content" key="removeTravel"/}</button>
+        </div>
+      </div>
+    {/isAuthor}
     
   </article>
   

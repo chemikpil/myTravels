@@ -69,11 +69,25 @@
 }
 
 .travel-actions {
-  margin-top: 40px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  
+  background-color: rgba(0,0,0,.7);
   
   text-align: center;
   
-  & > .button {
-    margin: 0 10px; 
+  .travel-actions__wrapper {
+    height: 100%;
+    position: relative;
+  }
+  
+  .remove-travel-trigger {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -15px;
   }
 }
