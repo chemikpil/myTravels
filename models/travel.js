@@ -10,11 +10,7 @@ var TravelModel = function () {
     cover_photo: String,
     location: {},
     date: String,
-    sections: [{
-      section_title: String,
-      section_content: String,
-      photos: [String]
-    }],
+    content: {type: String, default: '##This is section title\n\nThis is content. Click to edit'},
     author: {type: ObjectId, ref: 'User'},
     fans: [{type: Number, ref: 'User'}],
     mode: {type: String, default: 'draft'},
