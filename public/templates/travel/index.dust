@@ -6,8 +6,14 @@
   <article class="travel" {#isAuthor}data-id="{_id}"{/isAuthor}>
     {>"travel/cover" /}
     
-    <div class="travel-sections">
-      {>"travel/section" /}
+    <div class="container travel-content show-editor">
+      {#isAuthor}
+        <textarea class="travel-content__editor">{content}</textarea>
+        <div class="travel-content__previev"></div>
+      {:else}
+        {content}
+      {/isAuthor}
+      
     </div>
     
     <div class="container author-footer">
