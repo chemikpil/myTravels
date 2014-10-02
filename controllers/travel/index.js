@@ -5,6 +5,7 @@ var TravelModel = require('../../models/travel');
 var userLib = require('../../lib/user')();
 var travelLib = require('../../lib/travel')();
 var coverUploader = require('../../lib/coverUploader');
+var markdown = require('markdown').markdown;
 
 
 module.exports = function (router) {
@@ -50,6 +51,8 @@ module.exports = function (router) {
           if (res.locals.user && travel.author._id+ '' === res.locals.user._id) {
             model.isAuthor = true;
             model.class = 'class=is-editor';
+          } else {
+            model.content = markdown.toHTML(model.content);
           }
           
           if (model.mode === 'draft') {

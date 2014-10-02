@@ -11,11 +11,9 @@
         <textarea class="travel-content__editor">{content}</textarea>
         <div class="travel-content__previev"></div>
       {:else}
-        {content}
+        {content|s}
       {/isAuthor}
-      
     </div>
-    
     <div class="container author-footer">
       <img src="{author.gravatar}?s=50" alt="" width="50" height="50" class="user__avatar"><br>
       <p class="user__name user__name--travel"><a href="/profile/{author._id}">{author.name}</a></p>
