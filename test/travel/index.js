@@ -50,7 +50,8 @@ describe('Travel model', function () {
     travel = new Travel({
       title: 'My first Trip',
       location: 'Pila, Poland',
-      author: user._id
+      author: user._id,
+      mode: 'active'
     });
 
     user.save(function () {
