@@ -9,7 +9,7 @@
     <div class="container travel-content show-editor">
       {#isAuthor}
         <textarea class="travel-content__editor">{content}</textarea>
-        <div class="travel-content__previev"></div>
+        <div class="travel-content__preview"></div>
       {:else}
         {content|s}
       {/isAuthor}
@@ -22,8 +22,8 @@
     {#isAuthor}
       <div class="travel-actions">
         <div class="travel-actions__wrapper container">
-          <button class="travel-actions__button is-active">Markdown</button>
-          <button class="travel-actions__button">Preview</button>
+          <button class="travel-actions__button is-active" data-show="editor">Markdown</button>
+          <button class="travel-actions__button" data-show="preview">Preview</button>
           
           <button class="button button--small button--danger remove-travel-trigger">{@pre type="content" key="removeTravel"/}</button>
         </div>
