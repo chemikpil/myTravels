@@ -7,7 +7,8 @@
     "requirejs": "~2.1.13",
     "backbone": "~1.1.2",
     "underscore": "~1.6.0",
-    "requirejs-text": "~2.0.12"
+    "requirejs-text": "~2.0.12",
+    "markdown": "~0.5.0"
   },
   "private": true
 }

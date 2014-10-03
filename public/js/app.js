@@ -7,7 +7,8 @@ requirejs.config({
     'underscore': '../components/underscore/underscore',
     'dustjs': '../components/dustjs-linkedin/dist/dust-full.min',
     'backbone': '../components/backbone/backbone',
-    'text': '../components/requirejs-text/text'
+    'text': '../components/requirejs-text/text',
+    'markdown': '../components/markdown/lib/markdown'
   }
 });
 
