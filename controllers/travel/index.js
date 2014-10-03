@@ -52,6 +52,10 @@ module.exports = function (router) {
             model.isAuthor = true;
             model.class = 'class=is-editor';
           } else {
+            if (model.mode === 'draft') {
+              res.redirect('/');
+              return;
+            }
             model.content = markdown.toHTML(model.content);
           }
           
