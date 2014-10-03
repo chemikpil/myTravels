@@ -3,7 +3,8 @@
 define([
   'backbone',
   'libs/coveruploader/coveruploader',
-  'libs/contentedit/contentedit'
+  'libs/contentedit/contentedit',
+  'markdown'
 ], function (Backbone) {
   'use strict';
   
@@ -17,11 +18,13 @@ define([
       this.initContetnedit();
       this.initCoverUploader();
       this.initLocationAutocomplet();
+      this.parseMarkdownEditor();
     },
     
     events: {
       'click .remove-travel-trigger': 'removeTravel',
-      'change .travel__location': 'setLocation'
+      'change .travel__location': 'setLocation',
+      'click .travel-actions__button': 'switchEditor'
     },
     
     initContetnedit: function () {
@@ -73,6 +76,35 @@ define([
         data: data,
         dataType: 'json'
       });
+    },
+    
+    switchEditor: function (event) {
+      var button = event.target;
+      var actions = this.el.querySelector('.travel-actions__wrapper .is-active');
+      
+      actions.classList.remove('is-active');
+      button.classList.add('is-active');
+      
+      if (button.dataset.show === 'editor') {
+        this.switchPreviewToEditor();
+      } else {
+        this.switchEditorToPreview();
+      }
+    },
+    
+    switchEditorToPreview: function () {
+      this.el.querySelector('.travel-content').classList.remove('show-editor');
+    },
+    
+    switchPreviewToEditor: function () {
+      this.el.querySelector('.travel-content').classList.add('show-editor');
+    },
+    
+    parseMarkdownEditor: function () {
+      var editor = this.el.querySelector('.travel-content__editor');
+      var preview = this.el.querySelector('.travel-content__preview');
+      
+      preview.innerHTML = markdown.toHTML(editor.value);
     },
     
     removeTravel: function () {
