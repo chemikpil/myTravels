@@ -87,4 +87,18 @@ describe('Travel model', function () {
         done(err);
     });
   });
+  
+  it('should redirect to home page if travel is not published', function (done) {
+    travel.mode = 'draft';
+    travel.save();
+    request(mock)
+      .get('/travel/13423412')
+      .expect(200)
+      .redirects(1)
+      .expect('Content-Type', /html/)
+      .expect(/Home page/)
+      .end(function (err, res) {
+        done(err);
+    });
+  });
 });
