@@ -24,7 +24,8 @@ define([
     events: {
       'click .remove-travel-trigger': 'removeTravel',
       'change .travel__location': 'setLocation',
-      'click .travel-actions__button': 'switchEditor'
+      'click .travel-actions__button': 'switchEditor',
+      'change .travel-content__editor': 'parseMarkdownEditor'
     },
     
     initContetnedit: function () {
