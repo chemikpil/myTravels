@@ -10,6 +10,7 @@
       {#isAuthor}
         <textarea class="travel-content__editor">{content}</textarea>
         <div class="travel-content__preview"></div>
+        <button class="button button--small save-travel-trigger">{@pre type="content" key="saveTravel"/}</button>
       {:else}
         {content|s}
       {/isAuthor}
