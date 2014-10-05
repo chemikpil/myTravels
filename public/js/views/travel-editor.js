@@ -20,6 +20,8 @@ define([
       this.initCoverUploader();
       this.initLocationAutocomplet();
       this.parseMarkdownEditor();
+      
+      this.editor = this.el.querySelector('.travel-content__editor');
     },
     
     events: {
@@ -107,23 +109,20 @@ define([
     },
     
     parseMarkdownEditor: function () {
-      var editor = this.el.querySelector('.travel-content__editor');
       var preview = this.el.querySelector('.travel-content__preview');
       
-      preview.innerHTML = markdown.toHTML(editor.value);
+      preview.innerHTML = markdown.toHTML(this.editor.value);
     },
     
     resize: function () {
-      var editor = this.el.querySelector('.travel-content__editor');
-      
-      editor.style.height = 'auto';
-      editor.style.height = editor.scrollHeight + 'px';
+      this.editor.style.height = 'auto';
+      this.editor.style.height = this.editor.scrollHeight + 'px';
     },
     
     delayedResize: function () {
         window.setTimeout(this.resize.bind(this), 0);
     },
-    
+
     removeTravel: function () {
       var remove = window.confirm('Are you sure?');
       
