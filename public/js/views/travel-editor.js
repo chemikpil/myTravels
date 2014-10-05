@@ -12,6 +12,7 @@ define([
     el: '.travel',
     id: null,
     autocomplete: null,
+    eitor: null,
     
     initialize: function () {
       this.setId();
@@ -25,7 +26,11 @@ define([
       'click .remove-travel-trigger': 'removeTravel',
       'change .travel__location': 'setLocation',
       'click .travel-actions__button': 'switchEditor',
-      'change .travel-content__editor': 'parseMarkdownEditor'
+      'change .travel-content__editor': 'parseMarkdownEditor',
+      'cut .travel-content__editor': 'delayedResize',
+      'paste .travel-content__editor': 'delayedResize',
+      'drop .travel-content__editor': 'delayedResize',
+      'keydown .travel-content__editor': 'delayedResize'
     },
     
     initContetnedit: function () {
@@ -106,6 +111,17 @@ define([
       var preview = this.el.querySelector('.travel-content__preview');
       
       preview.innerHTML = markdown.toHTML(editor.value);
+    },
+    
+    resize: function () {
+      var editor = this.el.querySelector('.travel-content__editor');
+      
+      editor.style.height = 'auto';
+      editor.style.height = editor.scrollHeight + 'px';
+    },
+    
+    delayedResize: function () {
+        window.setTimeout(this.resize.bind(this), 0);
     },
     
     removeTravel: function () {
