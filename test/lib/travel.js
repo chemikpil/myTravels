@@ -103,6 +103,19 @@ describe('User lib', function () {
     
   });
   
+  it('should set travel content', function (done) {
+    
+    travelLib.setContent('test', travel._id, function (data) {
+      data.should.be.true;
+      
+      Travel.findOne({_id: travel._id}, function (err, travel) {
+        travel.content.should.be.equal('test');
+        done();
+      });
+    });
+    
+  });
+  
   it('should publish travel', function (done) {
     
     travelLib.publishTravel(travel._id, function (data) {

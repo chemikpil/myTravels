@@ -15,13 +15,13 @@ define([
     eitor: null,
     
     initialize: function () {
+      this.editor = this.el.querySelector('.travel-content__editor');
+      
       this.setId();
       this.initContetnedit();
       this.initCoverUploader();
       this.initLocationAutocomplet();
       this.parseMarkdownEditor();
-      
-      this.editor = this.el.querySelector('.travel-content__editor');
     },
     
     events: {
@@ -32,7 +32,8 @@ define([
       'cut .travel-content__editor': 'delayedResize',
       'paste .travel-content__editor': 'delayedResize',
       'drop .travel-content__editor': 'delayedResize',
-      'keydown .travel-content__editor': 'delayedResize'
+      'keydown .travel-content__editor': 'delayedResize',
+      'click .save-travel-trigger': 'saveContent'
     },
     
     initContetnedit: function () {
@@ -122,7 +123,25 @@ define([
     delayedResize: function () {
         window.setTimeout(this.resize.bind(this), 0);
     },
-
+    
+    saveContent: function (event) {
+      var text = this.editor.value;
+      var target = event.target;
+      
+      target.setAttribute('disabled', true);
+      
+      $.ajax({
+        type: 'POST', 
+        url: '/api/travel/' + this.id + '/setcontent',
+        data: {
+          content: text
+        },
+        success: function () {
+          target.removeAttribute('disabled');
+        }
+      });
+    },
+    
     removeTravel: function () {
       var remove = window.confirm('Are you sure?');
       

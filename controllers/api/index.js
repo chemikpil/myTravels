@@ -112,5 +112,24 @@ module.exports = function (router) {
       });
     });
   });
+  
+  router.post('/travel/:id/setcontent', function (req, res) {
+    var content = req.body.content;
+    var travel = req.params.id;
+    var user = res.locals.user;
+    
+    if (!canUpdateTravel(user, travel)) {
+      res.json(error);
+      return;
+    }
+    
+    travelLib.setContent(content, travel, function () {
+      res.format({
+        json: function () {
+          res.json(req.body);
+        }
+      });
+    });
+  });
 
 };
