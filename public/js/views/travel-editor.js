@@ -113,6 +113,28 @@ define([
       var preview = this.el.querySelector('.travel-content__preview');
       
       preview.innerHTML = markdown.toHTML(this.editor.value);
+      
+      this.findEmptyImages(preview);
+    },
+    
+    findEmptyImages: function (content) {
+      var imgs = content.querySelectorAll('img[src=""]');
+      var self = this;
+      
+      Array.prototype.forEach.call(imgs, function (img) {
+        self.renderFileUploadSection(img);
+      });
+    },
+    
+    renderFileUploadSection: function (img) {
+      var self = this;
+      
+      require(['views/image-upload'], function (Upload) {
+        var uploader = new Upload();
+        
+        img.parentNode.replaceChild(uploader.render().el, img);
+      });
+      
     },
     
     resize: function () {
