@@ -10,6 +10,10 @@ define([
     className: 'image-upload',
     id: null,
     
+    events: {
+      'input[type="ifile"]': 'dropFile'
+    },
+    
     render: function () {
       var input = document.createElement('input');
       input.type = 'file';
