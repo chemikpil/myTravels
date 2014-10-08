@@ -14,6 +14,10 @@ define([
       'input[type="ifile"]': 'dropFile'
     },
     
+    initialize: function (options) {
+      this.alt = options.alt;
+    },
+    
     render: function () {
       var input = document.createElement('input');
       input.type = 'file';
