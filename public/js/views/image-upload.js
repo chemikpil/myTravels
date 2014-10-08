@@ -25,6 +25,10 @@ define([
       this.el.appendChild(info);
       
       return this;
+    },
+    
+    dropFile: function () {
+      
     }
     
   });
