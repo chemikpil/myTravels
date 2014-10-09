@@ -11,7 +11,7 @@ define([
     id: null,
     
     events: {
-      'input[type="ifile"]': 'dropFile'
+      'change input[type="file"]': 'dropFile'
     },
     
     initialize: function (options) {
@@ -31,8 +31,11 @@ define([
       return this;
     },
     
-    dropFile: function () {
-      
+    close: function () {
+      this.unbind();
+      this.remove();
+      delete this.el;
+      delete this.$el;
     }
     
   });
