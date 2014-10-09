@@ -143,7 +143,8 @@ define([
       var self = this;
       require(['views/image-upload'], function (Upload) {
         var uploader = new Upload({
-          alt: img.alt
+          alt: img.alt,
+          parent: self
         });
         
         img.parentNode.replaceChild(uploader.render().el, img);
