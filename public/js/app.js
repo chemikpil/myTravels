@@ -8,7 +8,14 @@ requirejs.config({
     'dustjs': '../components/dustjs-linkedin/dist/dust-full.min',
     'backbone': '../components/backbone/backbone',
     'text': '../components/requirejs-text/text',
-    'markdown': '../components/markdown/lib/markdown'
+    'markdown': '../components/markdown/lib/markdown',
+    'he': '../components/he/he',
+    'to-markdown': '../components/to-markdown/src/to-markdown'
+  },
+  shim: {
+    'to-markdown': {
+      deps: ['he']
+    }
   }
 });
 
