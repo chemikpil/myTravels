@@ -11,7 +11,10 @@ define([
     id: null,
     
     events: {
-      'change input[type="file"]': 'dropFile'
+      'dragenter input': 'handleDragEnter',
+      'dragleave input': 'handleDragLeave',
+      'drop input': 'handleDragLeave',
+      'change input': 'dropFile'
     },
     
     initialize: function (options) {
@@ -29,6 +32,26 @@ define([
       this.el.appendChild(info);
       
       return this;
+    },
+    
+    renderImage: function () {
+      var img = document.createElement('img');
+      img.src = this.src;
+      img.alt = this.alt;
+      
+      this.el.parentNode.replaceChild(img, this.el);
+    },
+    
+    handleDragEnter: function () {
+      this.el.classList.add('is-drag');
+    },
+    
+    handleDragLeave: function () {
+      this.el.classList.remove('is-drag');
+    },
+    
+    dropFile: function () {
+      
     },
     
     close: function () {
