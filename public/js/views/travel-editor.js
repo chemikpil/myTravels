@@ -23,14 +23,14 @@ define([
       this.initContetnedit();
       this.initCoverUploader();
       this.initLocationAutocomplet();
-      this.parseMarkdownEditor();
+      this.parseMarkdownToHTML();
     },
     
     events: {
       'click .remove-travel-trigger': 'removeTravel',
       'change .travel__location': 'setLocation',
       'click .travel-actions__button': 'switchEditor',
-      'change .travel-content__editor': 'parseMarkdownEditor',
+      'change .travel-content__editor': 'parseMarkdownToHTML',
       'cut .travel-content__editor': 'delayedResize',
       'paste .travel-content__editor': 'delayedResize',
       'drop .travel-content__editor': 'delayedResize',
@@ -111,12 +111,23 @@ define([
       this.el.querySelector('.travel-content').classList.add('show-editor');
     },
     
-    parseMarkdownEditor: function () {
+    parseMarkdownToHTML: function () {
       var preview = this.el.querySelector('.travel-content__preview');
       
       preview.innerHTML = markdown.toHTML(this.editor.value);
       
+      this.removeEmptyImageUploaders();
       this.findEmptyImages(preview);
+    },
+    
+    removeEmptyImageUploaders: function () {
+      if (this.emptyImages.length > 0) {
+        for (var i = 0, l = this.emptyImages.length; i <l; i++) {
+          this.emptyImages[i].close();
+        }
+        
+        this.emptyImages = [];
+      }
     },
     
     findEmptyImages: function (content) {
