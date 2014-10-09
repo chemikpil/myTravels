@@ -3,7 +3,7 @@
 var ProfileModel = require('../../models/profile');
 var UserModel = require('../../models/user');
 var userLib = require('../../lib/user')();
-var coverUploader = require('../../lib/coverUploader');
+var imageUploader = require('../../lib/imageUploader');
 
 module.exports = function (router) {
 
@@ -41,7 +41,7 @@ module.exports = function (router) {
       res.send('Bad Authentication data');
     }
     
-    coverUploader(req.files.coverphoto, 'user_covers', function (err, file) {
+    imageUploader(req.files.coverphoto, 'user_covers', function (err, file) {
       userLib.saveCoverPhoto('/img/user_covers/' + file, res.locals.user._id, function (result) {
         res.send('success');
       });
