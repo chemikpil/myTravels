@@ -4,7 +4,8 @@ define([
   'backbone',
   'libs/coveruploader/coveruploader',
   'libs/contentedit/contentedit',
-  'markdown'
+  'markdown',
+  'to-markdown'
 ], function (Backbone) {
   'use strict';
   
@@ -13,6 +14,7 @@ define([
     id: null,
     autocomplete: null,
     eitor: null,
+    emptyImages: [],
     
     initialize: function () {
       this.editor = this.el.querySelector('.travel-content__editor');
@@ -128,15 +130,14 @@ define([
     
     renderFileUploadSection: function (img) {
       var self = this;
-      
       require(['views/image-upload'], function (Upload) {
         var uploader = new Upload({
           alt: img.alt
         });
         
         img.parentNode.replaceChild(uploader.render().el, img);
+        self.emptyImages.push(uploader);
       });
-      
     },
     
     resize: function () {
