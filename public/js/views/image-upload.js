@@ -85,10 +85,6 @@ define([
       xhr.send(files);
     },
     
-    renderImage: function (files) {
-      
-    },
-    
     close: function () {
       this.unbind();
       this.remove();
