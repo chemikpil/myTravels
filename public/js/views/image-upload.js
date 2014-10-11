@@ -30,7 +30,7 @@ define([
       this.el.appendChild(input);
       
       var info = document.createElement('span');
-      info.textContent = 'Drag and drop photo here or click to upload. Max 3!';
+      info.innerHTML = 'Drag and drop photo here or click to upload. <strong>Max 3!</strong>';
       this.el.appendChild(info);
       
       return this;
@@ -78,7 +78,7 @@ define([
         var content = xhr.responseText;
 
         if (!error && (xhr.status >= 200 && xhr.status < 300)){
-          self.renderImage(content);
+          // render image
         }
       };
 
