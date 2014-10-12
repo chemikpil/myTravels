@@ -3,6 +3,7 @@
 var error = {errors: 'Bad Authentication data'};
 var userLib = require('../../lib/user')();
 var travelLib = require('../../lib/travel')();
+var imageUploader = require('../../lib/imageUploader');
 
 var canUpdateTravel = function (user_id, travel_id) {
   var can = false;
@@ -129,6 +130,23 @@ module.exports = function (router) {
           res.json(req.body);
         }
       });
+    });
+  });
+  
+  router.post('/travel/:id/addimage', function (req, res) {
+    var files = req.files;
+    var travel = req.params.id;
+    var user = res.locals.user;
+
+    if (!canUpdateTravel(user, travel)) {
+      res.json(error);
+      return;
+    }
+    
+    console.log(files);
+    
+    imageUploader(files.file, 'travel_images', function (err, file) {
+      res.send(file);
     });
   });
 
