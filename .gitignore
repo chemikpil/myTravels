@@ -5,6 +5,7 @@ node_modules/
 public/components/
 public/img/user_covers/
 public/img/travel_covers/
+public/img/travel_images/
 config/mail.json
 *.iml
 /config/mail.json
