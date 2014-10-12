@@ -30,7 +30,6 @@ define([
       'click .remove-travel-trigger': 'removeTravel',
       'change .travel__location': 'setLocation',
       'click .travel-actions__button': 'switchEditor',
-      'change .travel-content__editor': 'parseMarkdownToHTML',
       'cut .travel-content__editor': 'delayedResize',
       'paste .travel-content__editor': 'delayedResize',
       'drop .travel-content__editor': 'delayedResize',
@@ -104,10 +103,12 @@ define([
     },
     
     switchEditorToPreview: function () {
+      this.parseMarkdownToHTML();
       this.el.querySelector('.travel-content').classList.remove('show-editor');
     },
     
     switchPreviewToEditor: function () {
+      this.parseHTMLToMarkdown();
       this.el.querySelector('.travel-content').classList.add('show-editor');
     },
     
@@ -120,9 +121,17 @@ define([
       this.findEmptyImages(preview);
     },
     
+    parseHTMLToMarkdown: function () {
+      var preview = this.el.querySelector('.travel-content__preview');
+      
+      this.removeEmptyImageUploaders();
+      this.editor.value = toMarkdown(preview.innerHTML);
+    },
+    
     removeEmptyImageUploaders: function () {
       if (this.emptyImages.length > 0) {
         for (var i = 0, l = this.emptyImages.length; i <l; i++) {
+          this.emptyImages[i].renderImage();
           this.emptyImages[i].close();
         }
         

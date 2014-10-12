@@ -36,9 +36,9 @@ define([
       return this;
     },
     
-    renderImage: function () {
+    renderImage: function (image) {
       var img = document.createElement('img');
-      img.src = this.src;
+      img.src = image ? image.src : '';
       img.alt = this.alt;
       
       this.el.parentNode.replaceChild(img, this.el);
@@ -54,23 +54,24 @@ define([
     
     dropFile: function (event) {
       var files = event.target.files;
-      var formData = new FormData();
       
       if (files.length > 3) {
         return false;
       }
       
       for (var i = 0, l = files.length; i < l; i++) {
-        formData.append(event.target.name + '-' + i, files[i], files[i].name);
+        this.sendFiles(files[i]);
       }
       
-      this.sendFiles(formData);
     },
     
-    sendFiles: function (files) {
+    sendFiles: function (file) {
       var xhr = new XMLHttpRequest();
       var self = this;
+      var formData = new FormData();
 
+      formData.append('file', file, file.name);
+      
       xhr.open("POST", '/api/travel/' + this.parent.id + '/addimage', true);
 
       xhr.onload = function(){
@@ -78,11 +79,11 @@ define([
         var content = xhr.responseText;
 
         if (!error && (xhr.status >= 200 && xhr.status < 300)){
-          // render image
+          console.log(content);
         }
       };
 
-      xhr.send(files);
+      xhr.send(formData);
     },
     
     close: function () {
