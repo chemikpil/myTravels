@@ -8,7 +8,6 @@ define([
   var ImageUpload = Backbone.View.extend({
     tagName: 'section',
     className: 'image-upload',
-    id: null,
     hasImage: false,
     
     events: {
@@ -27,11 +26,10 @@ define([
       var input = document.createElement('input');
       input.type = 'file';
       input.name = 'upload-image';
-      input.setAttribute('multiple', true);
       this.el.appendChild(input);
       
       var info = document.createElement('span');
-      info.innerHTML = 'Drag and drop photo here or click to upload. <strong>Max 3!</strong>';
+      info.innerHTML = 'Drag and drop photo here or click to upload.';
       this.el.appendChild(info);
       
       return this;
@@ -56,16 +54,9 @@ define([
     },
     
     dropFile: function (event) {
-      var files = event.target.files;
+      var files = event.target.files[0];
       
-      if (files.length > 3) {
-        return false;
-      }
-      
-      for (var i = 0, l = files.length; i < l; i++) {
-        this.sendFiles(files[i]);
-      }
-      
+      this.sendFiles(files);
     },
     
     sendFiles: function (file) {
@@ -79,10 +70,10 @@ define([
 
       xhr.onload = function(){
         var error = false;
-        var content = xhr.responseText;
+        var image = xhr.responseText;
 
         if (!error && (xhr.status >= 200 && xhr.status < 300)){
-          self.renderImage(content);
+          self.renderImage(image);
         }
       };
 
