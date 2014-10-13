@@ -9,6 +9,7 @@ define([
     tagName: 'section',
     className: 'image-upload',
     id: null,
+    hasImage: false,
     
     events: {
       'dragenter input': 'handleDragEnter',
@@ -36,12 +37,14 @@ define([
       return this;
     },
     
-    renderImage: function (image) {
+    renderImage: function (imageName) {
       var img = document.createElement('img');
-      img.src = image ? image.src : '';
+      img.src = imageName ? '/img/travel_images/' + imageName : '';
       img.alt = this.alt;
       
       this.el.parentNode.replaceChild(img, this.el);
+      
+      this.hasImage = true;
     },
     
     handleDragEnter: function () {
@@ -79,7 +82,7 @@ define([
         var content = xhr.responseText;
 
         if (!error && (xhr.status >= 200 && xhr.status < 300)){
-          console.log(content);
+          self.renderImage(content);
         }
       };
 
@@ -87,6 +90,10 @@ define([
     },
     
     close: function () {
+      if (!this.hasImage) {
+        this.renderImage();
+      }
+      
       this.unbind();
       this.remove();
       delete this.el;

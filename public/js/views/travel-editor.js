@@ -131,7 +131,6 @@ define([
     removeEmptyImageUploaders: function () {
       if (this.emptyImages.length > 0) {
         for (var i = 0, l = this.emptyImages.length; i <l; i++) {
-          this.emptyImages[i].renderImage();
           this.emptyImages[i].close();
         }
         
