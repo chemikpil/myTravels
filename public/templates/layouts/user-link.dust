@@ -1,0 +1,5 @@
+{#user}
+   
+  <a href="/profile/{_id}" class="user-inline"><img src="{gravatar}?s=30" alt="" width="30" height="30" class="user__avatar">{name}</a>
+  
+{/user}

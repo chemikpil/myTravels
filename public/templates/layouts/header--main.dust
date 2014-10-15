@@ -1,7 +1,10 @@
 <header class="header header--dark">
   <div class="container">
     <div class="row-xs row--justify-between row--align-baseline">
-      <div class="col-12">
+      <div class="col-6">
+        {>"layouts/user-link" /}
+      </div>
+      <div class="col-6">
         {>"layouts/menu" /}
       </div>
     </div>
