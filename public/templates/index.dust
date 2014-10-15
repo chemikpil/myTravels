@@ -4,6 +4,8 @@
 
 {<body}
     
+    {>"layouts/header--main" /}
+    
     <h1 class="logo logo--big">
         <a href="/">
           <i class="icon-location animated fadeInUp delay-0-3s"></i><br> <span class="animated fadeIn delay-0-3s">myTravels</span>                   </a>
