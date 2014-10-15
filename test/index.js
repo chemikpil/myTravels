@@ -37,7 +37,7 @@ describe('/', function () {
             .get('/')
             .expect(200)
             .expect('Content-Type', /html/)
-            .expect(/Hello, /)
+            .expect(/myTravels/)
             .end(function (err, res) {
                 done(err);
             });
