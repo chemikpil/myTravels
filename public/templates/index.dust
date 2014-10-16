@@ -11,4 +11,11 @@
           <i class="icon-location animated fadeInUp delay-0-3s"></i><br> <span class="animated fadeIn delay-0-3s">myTravels</span>                   </a>
     </h1>
     
+    <section class="container map">
+      <header>
+        <h3>{@pre type="content" key="exploreLead"/}</h3>
+        <h2>{@pre type="content" key="explore"/}</h2>
+      </header>
+    </section>
+    
 {/body}
