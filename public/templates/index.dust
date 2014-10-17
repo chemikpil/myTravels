@@ -12,9 +12,9 @@
     </h1>
     
     <section class="container map">
-      <header>
-        <h3>{@pre type="content" key="exploreLead"/}</h3>
-        <h2>{@pre type="content" key="explore"/}</h2>
+      <header class="section-header">
+        <h3 class="section-header__lead">{@pre type="content" key="exploreLead"/}</h3>
+        <h2 class="section-header__title">{@pre type="content" key="explore"/}</h2>
       </header>
     </section>
     
