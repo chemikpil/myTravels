@@ -1,4 +1,4 @@
-<header class="header header--dark">
+<header class="header header--dark animated fadeIn delay-1-2s">
   <div class="container">
     <div class="row-xs row--justify-between row--align-baseline">
       <div class="col-6">
