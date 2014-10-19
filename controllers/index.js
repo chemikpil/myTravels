@@ -8,16 +8,19 @@ module.exports = function (router) {
   
   router.get('/', function (req, res) {
     var query = {mode: 'active'};
-    var select = {title: 1, 'location.name': 1, url: 1, cover_photo: 1, _id: 0}
+    var select = {title: 1, 'location.name': 1, url: 1, cover_photo: 1, _id: 0};
     
     TravelModel.find(query)
       .select(select)
       .limit(10)
       .sort({date: -1})
-      .exec(function (err, travels) {
+      .exec(function (err, result) {
+
         res.render('index', {
-          travels: JSON.stringify(travels)
+          travels_count: result.length,
+          travels: JSON.parse(JSON.stringify(result))
         });
+      
       });
     
   });
