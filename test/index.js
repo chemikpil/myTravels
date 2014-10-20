@@ -32,7 +32,7 @@ describe('/', function () {
     });
 
 
-    it('should say "hello"', function (done) {
+    it('should say "myTravels"', function (done) {
         request(mock)
             .get('/')
             .expect(200)

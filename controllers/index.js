@@ -15,10 +15,12 @@ module.exports = function (router) {
       .limit(10)
       .sort({date: -1})
       .exec(function (err, result) {
+      
+        var travels = (result ? result : []);
 
         res.render('index', {
-          travels_count: result.length,
-          travels: JSON.parse(JSON.stringify(result))
+          travels_count: travels.length,
+          travels: JSON.parse(JSON.stringify(travels))
         });
       
       });
