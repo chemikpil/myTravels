@@ -1,6 +1,6 @@
 .travel-grid {
+  margin-top: 20px;
   position: relative;
-  width: 1000px;
 }
 
 .large {
@@ -23,7 +23,7 @@
   padding-bottom: 20%;
 }
 
-[class*="grid-"] {
+.travel-grid__item {
   position: relative;
   float:left;
   
@@ -34,7 +34,7 @@
   cursor: pointer;
 }
 
-[class*="grid-"]:after {
+.travel-grid__item:after {
   content:"";
   position: absolute;
   display: block;
@@ -44,12 +44,12 @@
   background: rgba(0,0,0,.1);
 }
 
-[class*="grid-"]:hover:after {
+.travel-grid__item:hover:after {
   background: rgba(0,0,0,.3);
 }
 
-[class*="grid-"] span {
-  display: block;
+.travel-grid__item span {
+  display: none;
   width: 100%;
   height: 100%;
   
@@ -57,9 +57,44 @@
 }
 
 @media (max-width: 680px) {
-  .small, .tall, .wide, .large {
+  .travel-grid__item {
     width: 50%;
     padding-bottom: 50%;
     margin-top: 0;
   }
+}
+
+.travel-grid__item:nth-of-type(8n+1) {
+  .large();
+}
+
+.travel-grid__item:nth-of-type(8n+2) {
+  .wide();
+}
+
+.travel-grid__item:nth-of-type(8n+3) {
+  .large();
+}
+
+.travel-grid__item:nth-of-type(8n+4) {
+  margin-top: -20%;
+  .tall();
+}
+
+.travel-grid__item:nth-of-type(8n+5) {
+  margin-top: -20%;
+  .small();
+}
+
+.travel-grid__item:nth-of-type(8n+6) {
+  .large();
+}
+
+.travel-grid__item:nth-of-type(8n+7) {
+  .tall();
+}
+
+.travel-grid__item:nth-of-type(8n+8) {
+  margin-top: -20%;
+  .small();
 }
