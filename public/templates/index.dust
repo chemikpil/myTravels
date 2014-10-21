@@ -21,7 +21,7 @@
         {#travels}
             {#.}
               <div class="travel-grid__item" style="background-image: url({cover_photo})">
-                <div class="travel-grid__item__info"><h3>{title}</h3>{location.name}</div>
+                <a href="/travel/{url}" class="travel-grid__item__info"><h3>{title}</h3>{location.name}</a>
               </div>
             {/.}
         {/travels}
