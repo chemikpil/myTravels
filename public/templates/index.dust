@@ -17,10 +17,10 @@
         <h2 class="section-header__title">{@pre type="content" key="explore"/}</h2>
       </header>
       
-      <div class="travel-grid">
+      <div class="clearfix travel-grid">
         {#travels}
             {#.}
-              <div class="travel-grid__item" style="background-image: url({cover_photo})"><span>{title}</span></div>
+              <div class="travel-grid__item" style="background-image: url({cover_photo})"><span>{title}<br>{location.name}</span></div>
             {/.}
         {/travels}
       </div>
