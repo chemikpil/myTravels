@@ -143,8 +143,6 @@ module.exports = function (router) {
       return;
     }
     
-    console.log(files);
-    
     imageUploader(files.file, 'travel_images', function (err, file) {
       res.send(file);
     });
